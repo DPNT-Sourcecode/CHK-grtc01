@@ -12,6 +12,7 @@ class Checkout
     update_prices
     sorted_basket = skus
     if !check_valid(sorted_basket)
+      p 'basket invalid'
       return -1
     end
     add_up_basket(sorted_basket)
@@ -31,13 +32,18 @@ class Checkout
     p 1
     p basket
     p 2
-    basket.empty?
+    if basket.length == 0
+      true
+    else
+      false
+    end
   end
   def add_up_basket(basket)
     p 'In add up basket'
     price_A
   end
 end
+
 
 
 
