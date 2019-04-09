@@ -25,7 +25,6 @@ class Checkout
   end
   def check_valid(basket)
     basket_array = basket.chars
-    p basket_array
     basket_array.delete('A')
     basket_array.delete('B')
     basket_array.delete('C')
@@ -37,7 +36,7 @@ class Checkout
     total_price = 0
     while x < basket.length do
       total_price += add_item(basket[x])
-      x ++
+      x = x + 1
     end
     total_price
   end
@@ -53,6 +52,7 @@ class Checkout
     end
   end
 end
+
 
 
 
