@@ -15,7 +15,9 @@ class Checkout
       p 'basket invalid'
       return -1
     end
-    add_up_basket(sorted_basket)
+    p 'Basket is now...'
+    p skus
+    add_up_basket(skus)
   end
   def update_prices()
     @price_A = A
@@ -32,9 +34,19 @@ class Checkout
   end
   def add_up_basket(basket)
     p 'In add up basket'
-    price_A
+    p basket
+    if basket[0] == 'A'
+      price_A
+    elsif basket[0] == 'B'
+      price_B
+    elsif basket[0] == 'C'
+      price_C
+    elsif basket[0] == 'D'
+      price_D
+    end
   end
 end
+
 
 
 
