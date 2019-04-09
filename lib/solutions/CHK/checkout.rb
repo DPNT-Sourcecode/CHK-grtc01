@@ -11,9 +11,9 @@ class Checkout
       p 'basket invalid'
       return -1
     end
-    sort_basket(skus)
-    # add_up_basket(sort_basket(skus))
+    add_up_basket(sort_basket(skus))
   end
+
   def check_valid(basket)
     # If the element has no price then its invalid
     basket_valid = true
@@ -27,6 +27,7 @@ class Checkout
     end
     basket_valid
   end
+
   def sort_basket(skus)
     basket = skus.chars
     basket_array = []
@@ -38,28 +39,26 @@ class Checkout
     basket_array << item_array
     item_array = ['D',basket.count('D')]
     basket_array << item_array
-    # get_special_offers(basket_array)
   end
-  # def add_up_basket(basket_array)
-  #   x = 0
-  #   total_price = 0
-  #   while x < basket_array.length do
-  #     total_price += add_item(basket_array[x][0], basket_array[x][1])
-  #     x = x + 1
-  #   end
-  #   total_price
-  # end
-  # def add_item(item, qty)
-  #   if item == 'A'
-  #     price_A * qty
-  #   elsif item == 'B'
-  #     price_B * qty
-  #   elsif item == 'C'
-  #     price_C * qty
-  #   elsif item == 'D'
-  #     price_D * qty
-  #   end
-  # end
+  def add_up_basket(basket_array)
+    x = 0
+    while x < basket_array.length do
+      @total_price += add_item(basket_array[x][0], basket_array[x][1])
+      x = x + 1
+    end
+    total_price
+  end
+  def add_item(item, qty)
+    if item == 'A'
+      price_A * qty
+    elsif item == 'B'
+      price_B * qty
+    elsif item == 'C'
+      price_C * qty
+    elsif item == 'D'
+      price_D * qty
+    end
+  end
   # def get_special_offers(basket_array)
   #   x = 0
   #   while x < basket_array.length do
@@ -71,5 +70,6 @@ class Checkout
   #   end
   # end
 end
+
 
 
