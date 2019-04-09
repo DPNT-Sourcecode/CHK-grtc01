@@ -15,16 +15,8 @@ class Checkout
   end
   def check_valid(basket)
     # If the element has no price then its invalid
-p @item_prices
     basket_array = basket.chars
-    if @item_prices.fetch(basket_array[0]) >1
-      p 'item in store'
-    end
-    # basket_array.delete('A')
-    # basket_array.delete('B')
-    # basket_array.delete('C')
-    # basket_array.delete('D')
-    # basket_array.empty?
+    @item_prices.fetch(basket_array[0]) > 1
   end
   # def sort_basket(skus)
   #   basket = skus.chars
@@ -70,11 +62,3 @@ p @item_prices
   #   end
   # end
 end
-
-
-
-
-
-
-
-
