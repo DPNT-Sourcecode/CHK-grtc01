@@ -9,15 +9,12 @@ class Checkout
   D = 15
 
   def checkout(skus)
-    p skus
+    total = 0
     update_prices
-    sorted_basket = skus
-    if !check_valid(sorted_basket)
+    if !check_valid(skus)
       p 'basket invalid'
       return -1
     end
-    p 'Basket is now...'
-    p skus
     add_up_basket(skus)
   end
   def update_prices()
@@ -49,5 +46,6 @@ class Checkout
     end
   end
 end
+
 
 
