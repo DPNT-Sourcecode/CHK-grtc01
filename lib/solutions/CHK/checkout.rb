@@ -14,6 +14,7 @@ class Checkout
     end
     # add_up_basket(sort_basket(skus))
     sort_basket(skus)
+    @total_price
   end
 
   def check_valid(basket)
@@ -39,35 +40,19 @@ class Checkout
       @sorted_basket << item_array
     end
   end
+
   def add_up_basket(basket_array)
-    x = 0
-    while x < basket_array.length do
-      @total_price += add_item(basket_array[x][0], basket_array[x][1])
-      x = x + 1
-    end
-    total_price
-  end
-  def add_item(item, qty)
-    if item == 'A'
-      price_A * qty
-    elsif item == 'B'
-      price_B * qty
-    elsif item == 'C'
-      price_C * qty
-    elsif item == 'D'
-      price_D * qty
+    @sorted_basket.each do | item, qty, price |
+      remainder = check_offers(item, qty)
+      @total_price += remainder * price
     end
   end
-  # def get_special_offers(basket_array)
-  #   x = 0
-  #   while x < basket_array.length do
-  #     item_array = []
-  #     item_arraybasket_array[x][0]
-  #     x = x + 1
-  #   end    if item == 'A' && qty == 3
-  #     130
-  #   end
-  # end
+
+  def check_offers(item, qty)
+    p offer  = @special_offers[item]
+    1
+  end
 end
+
 
 
