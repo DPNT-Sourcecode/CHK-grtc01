@@ -35,21 +35,23 @@ class Checkout
   def sort_basket(skus)
     item_array = []
     @item_prices.each do | item, price |
-      p item
-      p price 
       item_array[0] = item
       item_array[1] = skus.chars.count(item)
       item_array[2] = price
       @sorted_basket << item_array
+      item_array = []
     end
-    p @sorted_basket
   end
 
   def add_up_basket
     p @sorted_basket
     @sorted_basket.each do | item, qty, price |
-      remainder = check_offers(item, qty)
-      @total_price += remainder * price
+      p item
+      p qty
+      p price
+
+      # remainder = check_offers(item, qty)
+      @total_price += qty * price
     end
   end
 
@@ -58,6 +60,7 @@ class Checkout
     1
   end
 end
+
 
 
 
