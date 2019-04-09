@@ -2,7 +2,11 @@
 class Checkout
 
   def checkout(skus)
-    raise 'Not implemented'
+    sorted_basket = skus
+    check_valid(sorted_basket)
   end
-
+  def check_valid(basket)
+    p  basket.squeeze
+  end
 end
+
