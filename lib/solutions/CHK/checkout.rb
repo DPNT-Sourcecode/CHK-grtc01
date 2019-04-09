@@ -27,14 +27,9 @@ class Checkout
     @price_D = D
   end
   def check_valid(basket)
-    temp_basket = basket
-    temp_basket.delete! 'A'
-    basket.delete! 'B'
-    basket.delete! 'C'
-    basket.delete! 'D'
-    if basket.length != 0
-      false
-    end
+    basket_array = basket.chars
+    p basket_array
+
   end
   def add_up_basket(basket)
     p 'In add up basket'
@@ -50,3 +45,4 @@ class Checkout
     end
   end
 end
+
