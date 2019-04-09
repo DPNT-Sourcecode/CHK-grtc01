@@ -1,4 +1,4 @@
-require './lib/solutions/HLO_R1/hlo_r1.rb'
+require './lib/solutions/HLO/hello.rb'
 
 describe Hello do
 
@@ -6,3 +6,4 @@ describe Hello do
     expect(subject.hello('Kate')).to eq('Hello World!')
   end
 end
+
