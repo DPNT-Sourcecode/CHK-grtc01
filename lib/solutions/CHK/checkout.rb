@@ -15,6 +15,7 @@ class Checkout
       p 'basket invalid'
       return -1
     end
+    sort_basket(skus)
     add_up_basket(skus)
   end
   def update_prices()
@@ -30,6 +31,14 @@ class Checkout
     basket_array.delete('C')
     basket_array.delete('D')
     basket_array.empty?
+  end
+  def sort_basket(skus)
+
+    basket = skus.chars
+    basket_array = []
+    item_array = ['A',basket.count('A')]
+    basket_array << item_array
+    p basket_array
   end
   def add_up_basket(basket)
     x = 0
@@ -52,6 +61,7 @@ class Checkout
     end
   end
 end
+
 
 
 
