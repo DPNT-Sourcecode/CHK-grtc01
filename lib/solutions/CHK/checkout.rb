@@ -54,7 +54,7 @@ class Checkout
     @sorted_basket.each do | item, qty, price |
       if @special_offers.include?(item) &&
         qty >= @special_offers[item][0]
-          qty = add_special(qty, price, 
+          qty = add_special(qty, price,
             @special_offers[item][0], @special_offers[item][1])
       end
     end
@@ -64,7 +64,7 @@ class Checkout
     # Add a new element, update the old one
     x = qty.divmod(spe_qty)
     offer_item = ['SO',x[0],spe_price]
-    @sorted_basket << offer_ite
+    @sorted_basket << offer_item
     x[1]
   end
 
@@ -76,6 +76,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
