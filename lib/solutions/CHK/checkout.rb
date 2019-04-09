@@ -29,7 +29,11 @@ class Checkout
   def check_valid(basket)
     basket_array = basket.chars
     p basket_array
-
+    basket_array.delete('A')
+    basket_array.delete('B')
+    basket_array.delete('C')
+    basket_array.delete('D')
+    basket_array.empty?
   end
   def add_up_basket(basket)
     p 'In add up basket'
@@ -45,4 +49,5 @@ class Checkout
     end
   end
 end
+
 
