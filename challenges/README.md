@@ -9,6 +9,3 @@ In order to complete the round you need to implement the following method:
      hello(String) -> String
 The requirements state that the result should say hello to the world.
 I am going to assume that this requires an output of 'Hello World!'
-
-
-

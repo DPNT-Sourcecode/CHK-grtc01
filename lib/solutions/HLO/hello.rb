@@ -4,6 +4,3 @@ class Hello
     'Hello, World!'
   end
 end
-
-
-
