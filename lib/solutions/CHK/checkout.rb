@@ -1,12 +1,11 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
 
-  attr_reader :price_A, :price_B, :price_C, :price_D,
-  :item_price, 
-  :special_offer = { :A => [3,130], :B => [2,45]}
+  attr_reader :item_price, :special_offer
 
   def checkout(skus)
     @item_price = { :A => 50, :B => 30, :C => 20, :D => 15}
+    @special_offer = { :A => [3,130], :B => [2,45]}
     total = 0
     update_prices
     if !check_valid(skus)
@@ -67,6 +66,7 @@ class Checkout
     end
   end
 end
+
 
 
 
