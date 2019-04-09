@@ -1,17 +1,19 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
 
-  attr_reader :item_prices, :special_offers, :total_price
+  attr_reader :item_prices, :special_offers, :total_price, :sorted_basket
 
   def checkout(skus)
     @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, :default => -1}
-    @special_offers = { :A => [3,130], :B => [2,45]}
+    @special_offers = { 'A' => [3,130], 'B' => [2,45]}
     @total_price = 0
+    @sorted_basket = []
     if !check_valid(skus)
       p 'basket invalid'
       return -1
     end
-    add_up_basket(sort_basket(skus))
+    # add_up_basket(sort_basket(skus))
+    sort_basket(skus)
   end
 
   def check_valid(basket)
@@ -29,16 +31,19 @@ class Checkout
   end
 
   def sort_basket(skus)
-    basket = skus.chars
-    basket_array = []
-    item_array = ['A',basket.count('A')]
-    basket_array << item_array
-    item_array = ['B',basket.count('B')]
-    basket_array << item_array
-    item_array = ['C',basket.count('C')]
-    basket_array << item_array
-    item_array = ['D',basket.count('D')]
-    basket_array << item_array
+    p skus
+    basket_array = skus.chars
+    item_array = []
+    x = 0
+    while x < @item_prices.length do
+
+      item_array[0] = @item_prices[x]
+      item_array[1] = basket_array.count(item_array[0])
+      @sorted_basket << item_array
+      x = x + 1
+      p item_array
+      p @sorted_basket
+    end
   end
   def add_up_basket(basket_array)
     x = 0
@@ -70,6 +75,3 @@ class Checkout
   #   end
   # end
 end
-
-
-
