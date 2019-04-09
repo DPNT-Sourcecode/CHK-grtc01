@@ -25,5 +25,3 @@ Where:
  A-D are items in a shop they each have a price and some have special offers.
  Given a string that is a basket of goods then determine the basket cost.
  Return -1 if any of the letters are not A-D
-
-

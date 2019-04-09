@@ -6,4 +6,3 @@ describe Checkout do
     expect(subject.checkout('XXXX')).to eq(-1)
   end
 end
-
