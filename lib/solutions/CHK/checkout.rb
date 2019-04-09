@@ -60,8 +60,3 @@ class Checkout
     1
   end
 end
-
-
-
-
-
