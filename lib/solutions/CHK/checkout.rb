@@ -36,8 +36,8 @@ class Checkout
     item_array = []
     x = 0
     while x < @item_prices.length do
-
-      item_array[0] = @item_prices[x]
+      p @item_prices
+      item_array[0] = @item_prices(x)
       item_array[1] = basket_array.count(item_array[0])
       @sorted_basket << item_array
       x = x + 1
@@ -75,3 +75,4 @@ class Checkout
   #   end
   # end
 end
+
