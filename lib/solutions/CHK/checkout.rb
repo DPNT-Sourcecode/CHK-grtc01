@@ -18,28 +18,24 @@ class Checkout
     add_up_basket(sorted_basket)
   end
   def update_prices()
-    price_A = A
-    price_B = B
-    price_C = C
-    price_D = D
+    @price_A = A
+    @price_B = B
+    @price_C = C
+    @price_D = D
   end
   def check_valid(basket)
-    p  basket.squeeze
     basket.delete! 'A'
     basket.delete! 'B'
     basket.delete! 'C'
     basket.delete! 'D'
-    if basket.length == 0
-      true
-    else
-      false
-    end
+    basket.length == 0
   end
   def add_up_basket(basket)
     p 'In add up basket'
     price_A
   end
 end
+
 
 
 
