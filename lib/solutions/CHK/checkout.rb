@@ -4,7 +4,7 @@ class Checkout
   attr_reader :item_prices, :special_offers, :total_price, :sorted_basket
 
   def checkout(skus)
-    @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, :default => -1}
+    @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15 }
     @special_offers = { 'A' => [3,130], 'B' => [2,45]}
     @total_price = 0
     @sorted_basket = []
@@ -14,6 +14,7 @@ class Checkout
     end
     # add_up_basket(sort_basket(skus))
     sort_basket(skus)
+    add_up_basket
     @total_price
   end
 
@@ -34,14 +35,18 @@ class Checkout
   def sort_basket(skus)
     item_array = []
     @item_prices.each do | item, price |
+      p item
+      p price 
       item_array[0] = item
       item_array[1] = skus.chars.count(item)
       item_array[2] = price
       @sorted_basket << item_array
     end
+    p @sorted_basket
   end
 
-  def add_up_basket(basket_array)
+  def add_up_basket
+    p @sorted_basket
     @sorted_basket.each do | item, qty, price |
       remainder = check_offers(item, qty)
       @total_price += remainder * price
@@ -53,6 +58,7 @@ class Checkout
     1
   end
 end
+
 
 
 
