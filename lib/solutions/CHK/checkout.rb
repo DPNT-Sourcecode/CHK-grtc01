@@ -2,7 +2,7 @@
 class Checkout
 
   attr_reader :price_A, :price_B, :price_C, :price_D
-
+  special_offer = { :A => [3,130], :B => [2,45]}
   A = 50
   B = 30
   C = 20
@@ -42,13 +42,12 @@ class Checkout
     basket_array << item_array
     item_array = ['D',basket.count('D')]
     basket_array << item_array
-    basket_array
+    get_special_offers(basket_array)
   end
   def add_up_basket(basket_array)
     x = 0
     total_price = 0
     while x < basket_array.length do
-      # total_price += check_offers(basket_array[x][0], basket_array[x][1])
       total_price += add_item(basket_array[x][0], basket_array[x][1])
       x = x + 1
     end
@@ -65,12 +64,17 @@ class Checkout
       price_D * qty
     end
   end
-  def check_offers(item, qty)
-    if item == 'A' && qty == 3
+  def get_special_offers(basket_array)
+    x = 0
+    while x < basket_array.length do
+      total_price += add_item(basket_array[x][0], basket_array[x][1])
+      x = x + 1
+    end    if item == 'A' && qty == 3
       130
     end
   end
 end
+
 
 
 
