@@ -9,6 +9,7 @@ class Checkout
   D = 15
 
   def checkout(skus)
+    p skus
     update_prices
     sorted_basket = skus
     if !check_valid(sorted_basket)
@@ -26,11 +27,14 @@ class Checkout
     @price_D = D
   end
   def check_valid(basket)
-    basket.delete! 'A'
+    temp_basket = basket
+    temp_basket.delete! 'A'
     basket.delete! 'B'
     basket.delete! 'C'
     basket.delete! 'D'
-    basket.length == 0
+    if basket.length != 0
+      false
+    end
   end
   def add_up_basket(basket)
     p 'In add up basket'
@@ -46,12 +50,3 @@ class Checkout
     end
   end
 end
-
-
-
-
-
-
-
-
-

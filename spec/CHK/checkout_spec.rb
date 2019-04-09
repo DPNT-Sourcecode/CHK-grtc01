@@ -12,6 +12,3 @@ describe Checkout do
     expect(subject.checkout('B')).to eq(30)
   end
 end
-
-
-
