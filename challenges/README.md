@@ -7,5 +7,8 @@ A test framework has been provided but I know that this will not help me later s
 ## Challenge 2
 In order to complete the round you need to implement the following method:
      hello(String) -> String
+The requirements state that the result should say hello to the world.
+I am going to assume that this requires an output of 'Hello World!'
+
 
 
