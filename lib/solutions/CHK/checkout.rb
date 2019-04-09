@@ -4,7 +4,7 @@ class Checkout
   attr_reader :item_prices, :special_offers, :total_price
 
   def checkout(skus)
-    @item_prices = { :A => 50, :B => 30, :C => 20, :D => 15, :default => -1}
+    @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, :default => -1}
     @special_offers = { :A => [3,130], :B => [2,45]}
     @total_price = 0
     if !check_valid(skus)
@@ -15,16 +15,16 @@ class Checkout
   end
   def check_valid(basket)
     # If the element has no price then its invalid
-
+p @item_prices
     basket_array = basket.chars
     if @item_prices.fetch(basket_array[0]) >1
       p 'item in store'
     end
-    basket_array.delete('A')
-    basket_array.delete('B')
-    basket_array.delete('C')
-    basket_array.delete('D')
-    basket_array.empty?
+    # basket_array.delete('A')
+    # basket_array.delete('B')
+    # basket_array.delete('C')
+    # basket_array.delete('D')
+    # basket_array.empty?
   end
   # def sort_basket(skus)
   #   basket = skus.chars
@@ -70,6 +70,7 @@ class Checkout
   #   end
   # end
 end
+
 
 
 
