@@ -31,18 +31,12 @@ class Checkout
   end
 
   def sort_basket(skus)
-    p skus
-    basket_array = skus.chars
     item_array = []
-    x = 0
-    while x < @item_prices.length do
-      p @item_prices
-      item_array[0] = @item_prices(x)
-      item_array[1] = basket_array.count(item_array[0])
+    @item_prices.each do | item, price |
+      item_array[0] = item
+      item_array[1] = skus.chars.count(item)
+      item_array[2] = price
       @sorted_basket << item_array
-      x = x + 1
-      p item_array
-      p @sorted_basket
     end
   end
   def add_up_basket(basket_array)
@@ -75,4 +69,5 @@ class Checkout
   #   end
   # end
 end
+
 
