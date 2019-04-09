@@ -21,6 +21,7 @@ class Checkout
     @sorted_basket = []
   end
 
+
   def check_valid(basket)
     basket_valid = true
     x = 0
@@ -32,17 +33,24 @@ class Checkout
     end
     basket_valid
   end
-  def basic_items(skus)
+
+  def sort_basket(basket)
+    basic_items(basket)
+    check_specials
+  end
+
+  def basic_items(basket)
     @item_prices.each do | item, price |
       item_array = []
       item_array[0] = item
-      item_array[1] = skus.chars.count(item)
+      item_array[1] = basket.chars.count(item)
       item_array[2] = price
       @sorted_basket << item_array
     end
   end
 
   def check_specials
+    p @sorted_basket
     @sorted_basket.each do | item, qty, price |
       if @special_offers.include?(item)
         so_qty = @special_offers[item][0]
@@ -67,4 +75,5 @@ class Checkout
     @total_price
   end
 end
+
 
