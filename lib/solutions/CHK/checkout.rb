@@ -11,6 +11,7 @@ class Checkout
       p 'basket invalid'
       return -1
     end
+    sort_basket(skus)
     # add_up_basket(sort_basket(skus))
   end
   def check_valid(basket)
@@ -18,19 +19,19 @@ class Checkout
     basket_array = basket.chars
     @item_prices.fetch(basket_array[0]) > 1
   end
-  # def sort_basket(skus)
-  #   basket = skus.chars
-  #   basket_array = []
-  #   item_array = ['A',basket.count('A')]
-  #   basket_array << item_array
-  #   item_array = ['B',basket.count('B')]
-  #   basket_array << item_array
-  #   item_array = ['C',basket.count('C')]
-  #   basket_array << item_array
-  #   item_array = ['D',basket.count('D')]
-  #   basket_array << item_array
-  #   get_special_offers(basket_array)
-  # end
+  def sort_basket(skus)
+    basket = skus.chars
+    basket_array = []
+    item_array = ['A',basket.count('A')]
+    basket_array << item_array
+    item_array = ['B',basket.count('B')]
+    basket_array << item_array
+    item_array = ['C',basket.count('C')]
+    basket_array << item_array
+    item_array = ['D',basket.count('D')]
+    basket_array << item_array
+    # get_special_offers(basket_array)
+  end
   # def add_up_basket(basket_array)
   #   x = 0
   #   total_price = 0
@@ -62,3 +63,4 @@ class Checkout
   #   end
   # end
 end
+
