@@ -15,6 +15,7 @@ class Checkout
     if !check_valid(sorted_basket)
       return -1
     end
+    add_up_basket(sorted_basket)
   end
   def update_prices()
     price_A = A
@@ -28,8 +29,9 @@ class Checkout
     basket.delete('B')
     basket.delete('C')
     basket.delete('D')
-    basket.length == 0
+    basket.empty?
   end
 end
+
 
 
