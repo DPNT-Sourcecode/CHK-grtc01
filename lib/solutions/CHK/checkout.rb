@@ -49,7 +49,6 @@ class Checkout
 
   def check_specials
     @sorted_basket.each do | item, qty, price |
-      p sorted_basket
       if @special_offers.include?(item)
         so_qty = @special_offers[item][0]
         so_price = @special_offers[item][1]
@@ -59,7 +58,7 @@ class Checkout
           so_qty = x
           item_array = ['O', so_qty, so_price]
           @sorted_basket << item_array
-          p @sorted_basket
+          @sorted_basket
         end
       end
     end
@@ -73,6 +72,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
