@@ -48,13 +48,13 @@ class Checkout
     x = 0
     total_price = 0
     while x < basket_array.length do
+      # total_price += check_offers(basket_array[x][0], basket_array[x][1])
       total_price += add_item(basket_array[x][0], basket_array[x][1])
       x = x + 1
     end
     total_price
   end
   def add_item(item, qty)
-    check_offers(item, qty)
     if item == 'A'
       price_A * qty
     elsif item == 'B'
@@ -62,7 +62,7 @@ class Checkout
     elsif item == 'C'
       price_C * qty
     elsif item == 'D'
-      price_D * qty>
+      price_D * qty
     end
   end
   def check_offers(item, qty)
@@ -71,5 +71,6 @@ class Checkout
     end
   end
 end
+
 
 
