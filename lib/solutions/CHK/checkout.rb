@@ -4,18 +4,20 @@ class Checkout
   attr_reader :item_prices, :special_offers, :total_price, :sorted_basket
 
   def checkout(skus)
+    set_up
+    if !check_valid(skus)
+      return -1
+    end
+    sort_basket(skus)
+    check_specials
+    add_up_basket
+    @total_price
+  end
+  def set_up
     @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15 }
     @special_offers = { 'A' => [3,130], 'B' => [2,45]}
     @total_price = 0
     @sorted_basket = []
-    if !check_valid(skus)
-      p 'basket invalid'
-      return -1
-    end
-    # add_up_basket(sort_basket(skus))
-    sort_basket(skus)
-    add_up_basket
-    @total_price
   end
 
   def check_valid(basket)
@@ -44,15 +46,10 @@ class Checkout
   end
 
   def add_up_basket
-    p @sorted_basket
     @sorted_basket.each do | item, qty, price |
-      p item
-      p qty
-      p price
-
-      # remainder = check_offers(item, qty)
-      @total_price += qty * price
+      @total_price += (qty * price)
     end
+    @total_price
   end
 
   def check_offers(item, qty)
@@ -60,3 +57,4 @@ class Checkout
     1
   end
 end
+
