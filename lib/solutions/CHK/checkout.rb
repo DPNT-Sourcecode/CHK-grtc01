@@ -47,8 +47,8 @@ class Checkout
   def add_up_basket(basket_array)
     x = 0
     total_price = 0
-    while x < basket.length do
-      total_price += add_item(basket[x][0], basket[x][1])
+    while x < basket_array.length do
+      total_price += add_item(basket_array[x][0], basket_array[x][1])
       x = x + 1
     end
     total_price
@@ -65,3 +65,4 @@ class Checkout
     end
   end
 end
+
