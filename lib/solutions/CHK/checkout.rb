@@ -11,8 +11,8 @@ class Checkout
     sort_basket(skus)
     check_specials
     add_up_basket
-    @total_price
   end
+
   def set_up
     @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15 }
     @special_offers = { 'A' => [3,130], 'B' => [2,45]}
@@ -21,12 +21,10 @@ class Checkout
   end
 
   def check_valid(basket)
-    # If the element has no price then its invalid
     basket_valid = true
-    basket_array = basket.chars
     x = 0
-    while basket_valid && (x < basket_array.length) do
-      if !@item_prices.include?(basket_array[x])
+    while basket_valid && (x < basket.chars.length) do
+      if !@item_prices.include?(basket.chars[x])
         basket_valid = false
       end
       x = x + 1
@@ -45,16 +43,15 @@ class Checkout
     end
   end
 
+  def check_specials
+  end
+
   def add_up_basket
     @sorted_basket.each do | item, qty, price |
       @total_price += (qty * price)
     end
     @total_price
   end
-
-  def check_offers(item, qty)
-    p offer  = @special_offers[item]
-    1
-  end
 end
+
 
