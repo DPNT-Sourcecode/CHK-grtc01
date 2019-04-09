@@ -25,7 +25,8 @@ class Checkout
   end
   def check_valid(basket)
     p  basket.squeeze
-    basket.delete('A')
+    basket.delete 'A'
+    p basket
     basket.delete('B')
     basket.delete('C')
     basket.delete('D')
@@ -43,6 +44,7 @@ class Checkout
     price_A
   end
 end
+
 
 
 
