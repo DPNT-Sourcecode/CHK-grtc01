@@ -16,8 +16,16 @@ class Checkout
   end
   def check_valid(basket)
     # If the element has no price then its invalid
+    basket_valid = true
     basket_array = basket.chars
-    @item_prices.fetch(basket_array[0]) > 1
+    x = 0
+    while basket_valid && (x < basket_array.length) do
+      if !@item_prices.include?(basket_array[x])
+        basket_valid = false
+      end
+      x = x + 1
+    end
+    basket_valid
   end
   def sort_basket(skus)
     basket = skus.chars
@@ -63,4 +71,5 @@ class Checkout
   #   end
   # end
 end
+
 
