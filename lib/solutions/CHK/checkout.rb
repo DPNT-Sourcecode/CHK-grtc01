@@ -33,17 +33,27 @@ class Checkout
   end
 
   def sort_basket(skus)
-    item_array = []
+    basic_items(skus)
+    check_specials
+  end
+
+  def basic_items(skus)
     @item_prices.each do | item, price |
+      item_array = []
       item_array[0] = item
       item_array[1] = skus.chars.count(item)
       item_array[2] = price
       @sorted_basket << item_array
-      item_array = []
     end
   end
 
   def check_specials
+    @sorted_basket.each do | item, qty, price |
+      so_qty = @special_offers[item][0]
+      so_price = @special_offers[item][1]
+      if qty >= so_qty
+        x =
+        qty = so_qty / qty # Remainder
   end
 
   def add_up_basket
@@ -53,3 +63,4 @@ class Checkout
     @total_price
   end
 end
+
