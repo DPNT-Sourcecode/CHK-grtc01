@@ -1,14 +1,12 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
 
-  attr_reader :price_A, :price_B, :price_C, :price_D
-  special_offer = { :A => [3,130], :B => [2,45]}
-  A = 50
-  B = 30
-  C = 20
-  D = 15
+  attr_reader :price_A, :price_B, :price_C, :price_D,
+  :item_price, 
+  :special_offer = { :A => [3,130], :B => [2,45]}
 
   def checkout(skus)
+    @item_price = { :A => 50, :B => 30, :C => 20, :D => 15}
     total = 0
     update_prices
     if !check_valid(skus)
@@ -16,12 +14,6 @@ class Checkout
       return -1
     end
     add_up_basket(sort_basket(skus))
-  end
-  def update_prices()
-    @price_A = A
-    @price_B = B
-    @price_C = C
-    @price_D = D
   end
   def check_valid(basket)
     basket_array = basket.chars
@@ -67,13 +59,15 @@ class Checkout
   def get_special_offers(basket_array)
     x = 0
     while x < basket_array.length do
-      total_price += add_item(basket_array[x][0], basket_array[x][1])
+      item_array = []
+      item_arraybasket_array[x][0]
       x = x + 1
     end    if item == 'A' && qty == 3
       130
     end
   end
 end
+
 
 
 
