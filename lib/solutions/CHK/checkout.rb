@@ -33,19 +33,27 @@ class Checkout
     basket_array.empty?
   end
   def add_up_basket(basket)
-    p 'In add up basket'
-    p basket
-    if basket[0] == 'A'
+    x = 0
+    total_price = 0
+    while x < basket.length do
+      total_price += add_item(basket[x])
+      x ++
+    end
+    total_price
+  end
+  def add_item(item)
+    if item == 'A'
       price_A
-    elsif basket[0] == 'B'
+    elsif item == 'B'
       price_B
-    elsif basket[0] == 'C'
+    elsif item == 'C'
       price_C
-    elsif basket[0] == 'D'
+    elsif item == 'D'
       price_D
     end
   end
 end
+
 
 
 
