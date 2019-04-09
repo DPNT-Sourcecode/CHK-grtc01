@@ -54,6 +54,7 @@ class Checkout
     total_price
   end
   def add_item(item, qty)
+    check_offers(item, qty)
     if item == 'A'
       price_A * qty
     elsif item == 'B'
@@ -61,8 +62,14 @@ class Checkout
     elsif item == 'C'
       price_C * qty
     elsif item == 'D'
-      price_D * qty
+      price_D * qty>
+    end
+  end
+  def check_offers(item, qty)
+    if item == 'A' && qty == 3
+      130
     end
   end
 end
+
 
