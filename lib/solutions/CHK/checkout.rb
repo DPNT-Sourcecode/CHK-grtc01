@@ -50,25 +50,29 @@ class Checkout
   def check_specials
     @sorted_basket.each do | item, qty, price |
       p sorted_basket
-      so_qty = @special_offers[item][0]
-      so_price = @special_offers[item][1]
-      if qty >= so_qty
-        x = qty.div(so_qty)
-        qty = qty.modulo(so_qty) # Remainder
-        so_qty = x
-        item_array = ['O', so_qty, so_price]
-        @sorted_basket << item_array
-        p @sorted_basket
+      if @special_offers.include?(item)
+        so_qty = @special_offers[item][0]
+        so_price = @special_offers[item][1]
+        if qty >= so_qty
+          x = qty.div(so_qty)
+          qty = qty.modulo(so_qty) # Remainder
+          so_qty = x
+          item_array = ['O', so_qty, so_price]
+          @sorted_basket << item_array
+          p @sorted_basket
+        end
       end
     end
   end
 
   def add_up_basket
+    p @sorted_basket
     @sorted_basket.each do | item, qty, price |
       @total_price += (qty * price)
     end
     @total_price
   end
 end
+
 
 

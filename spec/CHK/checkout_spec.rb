@@ -35,8 +35,9 @@ describe Checkout do
   it 'App should say return -1 if ABCDX are in the basket' do
     expect(subject.checkout('ABCDX')).to eq(-1)
   end
-  # # Special Offers
-  # it 'App should say return 130 if AAA are in the basket' do
-  #   expect(subject.checkout('AAA')).to eq(130)
-  # end
+  # Special Offers
+  it 'App should say return 130 if AAA are in the basket' do
+    expect(subject.checkout('AAA')).to eq(130)
+  end
 end
+
