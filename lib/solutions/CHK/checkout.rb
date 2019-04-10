@@ -45,15 +45,19 @@ class Checkout
   def basic_items(basket)
     @item_prices.each do |item, price|
       item_array = []
-      item_array[ITEM] = item
       item_array[QTY] = basket.chars.count(item)
-      item_array[PRICE] = price
-      @sorted_basket << item_array
+      if item_array[QTY] > 0
+        item_array[ITEM] = item
+        item_array[PRICE] = price
+        @sorted_basket << item_array
+      end
     end
   end
 
   def check_specials
     x = 0
+    p @sorted_basket.length
+    p @sorted_basket
     while x < @sorted_basket.length &&
       @sorted_basket[x][ITEM] != 'SO'
       print 'in check specials, checking '
@@ -109,6 +113,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
