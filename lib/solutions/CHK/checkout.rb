@@ -55,8 +55,9 @@ class Checkout
   def check_specials
     p @sorted_basket
     x = 0
-    while x < @sorted_basket.length do
-      get_special_offer(x)
+    while @sorted_basket[x][ITEM] != 'SO' &&
+      x < @sorted_basket.length do
+        get_special_offer(x)
       x = x+ 1
     end
   end
@@ -69,6 +70,7 @@ class Checkout
     if @special_offers.include?(item) &&
       qty >= @special_offers[item][QTY]
       # Add a new element, update the old one
+      offer_item = []
       x = qty.div(@special_offers[item][QTY])
       offer_item[ITEM] = 'SO'
       offer_item[PRICE] = @special_offers[item][PRICE]
@@ -89,7 +91,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
