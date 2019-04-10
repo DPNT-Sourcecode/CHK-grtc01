@@ -2,9 +2,13 @@
 class Checkout
   attr_reader :item_prices, :special_offers, :total_price, :sorted_basket
   ITEM = 2
+  ITEM.freeze
   PRICE = 1
+  PRICE.freeze
   QTY = 0
+  QTY.freeze
   SPECIAL_OFFER_CODE = 'SO'
+  SPECIAL_OFFER_CODE.freeze
 
   def checkout(skus)
     set_up
@@ -17,11 +21,10 @@ class Checkout
 
   def set_up
     @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15 }
-    @special_offers = { 'A' => [3,130], 'B' => [2,45]}
+    @special_offers = { 'A' => [3, 130], 'B' => [2, 45] }
     @total_price = 0
     @sorted_basket = []
   end
-
 
   def check_valid(basket)
     basket_valid = true
@@ -84,5 +87,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
