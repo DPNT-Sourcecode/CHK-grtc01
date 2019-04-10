@@ -25,3 +25,8 @@ Where:
  A-D are items in a shop they each have a price and some have special offers.
  Given a string that is a basket of goods then determine the basket cost.
  Return -1 if any of the letters are not A-D
+
+ ## Challenge 5
+ To add more items and special OffersWe are going to sell a new item E.
+ Normally E costs 40, but if you buy 2 of Es you will get B free. How cool is that ? Multi-priced items also seemed to work well so we should have more of these.
+

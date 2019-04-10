@@ -45,4 +45,6 @@ describe Checkout do
   it 'App should return 175 if AAABB are in the basket' do
     expect(subject.checkout('AAABB')).to eq(175)
   end
+  ## New products
 end
+
