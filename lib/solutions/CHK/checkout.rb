@@ -2,6 +2,9 @@
 class Checkout
 
   attr_reader :item_prices, :special_offers, :total_price, :sorted_basket
+  ITEM = 0
+  PRICE = 1
+  QTY = 2
 
   def checkout(skus)
     set_up
@@ -42,9 +45,9 @@ class Checkout
   def basic_items(basket)
     @item_prices.each do | item, price |
       item_array = []
-      item_array[0] = item
-      item_array[1] = basket.chars.count(item)
-      item_array[2] = price
+      item_array[ITEM] = item
+      item_array[QTY] = basket.chars.count(item)
+      item_array[PRICE] = price
       @sorted_basket << item_array
     end
   end
@@ -58,10 +61,13 @@ class Checkout
     end
   end
 
-  def add_special(qty, price, spe_qty, spe_price)
+  def get_special_offer(num)
+    item = @sorted_basket[num][ITEM]
+    qty = @sorted_basket[num][QTY]
+    price = @sorted_basket[num][PRICE]
     # Add a new element, update the old one
     x = qty.divmod(spe_qty)
-    offer_item = ['SO',x[0],spe_price]
+    offer_item = ['SO',x[PRICE],spe_price]
     @sorted_basket << offer_item
     x[1]
     @sorted_basket.each do | item, qty, price |
@@ -79,4 +85,5 @@ class Checkout
     @total_price
   end
 end
+
 
