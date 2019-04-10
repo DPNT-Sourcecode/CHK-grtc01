@@ -29,11 +29,11 @@ class Checkout
   def check_valid(basket)
     basket_valid = true
     x = 0
-    while basket_valid && (x < basket.chars.length) do
+    while basket_valid && (x < basket.chars.length)
       if !@item_prices.include?(basket.chars[x])
         basket_valid = false
       end
-      x = x + 1
+      x += 1
     end
     basket_valid
   end
@@ -44,7 +44,7 @@ class Checkout
   end
 
   def basic_items(basket)
-    @item_prices.each do | item, price |
+    @item_prices.each do |item, price|
       item_array = []
       item_array[ITEM] = item
       item_array[QTY] = basket.chars.count(item)
@@ -87,6 +87,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
