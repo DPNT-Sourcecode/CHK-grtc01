@@ -56,6 +56,7 @@ class Checkout
     x = 0
     while x < @sorted_basket.length &&
       @sorted_basket[x][ITEM] != 'SO'
+      p 'in check specials, checking ' << @sorted_basket[x]
       if @special_offers.include?(@sorted_basket[x][ITEM])
         calc_all_special_offers(x)
       end
@@ -105,4 +106,5 @@ class Checkout
     @total_price
   end
 end
+
 
