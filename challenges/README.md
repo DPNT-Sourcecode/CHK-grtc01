@@ -29,4 +29,3 @@ Where:
  ## Challenge 5
  To add more items and special OffersWe are going to sell a new item E.
  Normally E costs 40, but if you buy 2 of Es you will get B free. How cool is that ? Multi-priced items also seemed to work well so we should have more of these.
-
