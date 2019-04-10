@@ -24,7 +24,9 @@ class Checkout
 
   def set_up
     @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, 'E' => 40 }
-    @special_offers = { 'A' => [[5, 200],[3, 130]], 'B' => [[2, 45]], 'E' => [2,FREEBIE_CODE,'B'] }
+    @special_offers = { 'A' => [[5, 200],[3, 130]],
+                        'B' => [[2, 45]],
+                        'E' => [2,FREEBIE_CODE,'B'] }
     @total_price = 0
     @sorted_basket = []
   end
@@ -74,7 +76,12 @@ class Checkout
 
 # By now I should have an item and a list of special offers
   def calc_all_special_offers(num)
-    print ' In calc_all_special_offers '
+    check_freebies(num)
+    calc_discounts(num)
+  end
+
+  def calc_discounts(num)
+    print ' In calc_discounts '
     p num
     p @sorted_basket[num]
     item = @sorted_basket[num][ITEM]
@@ -117,6 +124,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
