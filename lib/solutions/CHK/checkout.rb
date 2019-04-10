@@ -75,17 +75,10 @@ class Checkout
     p @sorted_basket[num]
     p item = @sorted_basket[num][ITEM]
     p offers_list = @special_offers[item]
-    # x = 0
-    # while x < offers_list.length
-    # if @special_offers.include?(item)
-    #   calc_special(num,offers_list[x])
-    # end
-  end
-
-  def calc_special(num,special_offers_list)
     x = 0
-    while x < special_offers_list.length do
-      update_basket(num,special_offers_list[x])
+    while x < offers_list.length
+      update_basket(num, special_offers_list[x])
+      x += 1
     end
   end
 
@@ -113,3 +106,4 @@ class Checkout
     @total_price
   end
 end
+
