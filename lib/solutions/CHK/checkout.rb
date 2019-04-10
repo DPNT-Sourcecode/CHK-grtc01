@@ -2,9 +2,9 @@
 class Checkout
 
   attr_reader :item_prices, :special_offers, :total_price, :sorted_basket
-  ITEM = 0
+  ITEM = 2
   PRICE = 1
-  QTY = 2
+  QTY = 0
 
   def checkout(skus)
     set_up
@@ -65,16 +65,19 @@ class Checkout
     item = @sorted_basket[num][ITEM]
     qty = @sorted_basket[num][QTY]
     price = @sorted_basket[num][PRICE]
-    # Add a new element, update the old one
-    x = qty.divmod(spe_qty)
-    offer_item = ['SO',x[PRICE],spe_price]
-    @sorted_basket << offer_item
-    x[1]
-    @sorted_basket.each do | item, qty, price |
-      if @special_offers.include?(item) &&
-        qty >= @special_offers[item][0]
-          qty = add_special(qty, price,
-            @special_offers[item][0], @special_offers[item][1])
+
+    if @special_offers.include?(item) &&
+      qty >= @special_offers[item][QTY]
+      # Add a new element, update the old one
+      x = qty.div(@special_offers[item][QTY])
+      offer_item[ITEM] = 'SO'
+      offer_item[PRICE] = @special_offers[item][PRICE]
+      offer_item[QTY] = x
+      @sorted_basket << offer_item
+      # Update qty of remaining item
+      @sorted_basket[num][QTY] = qty.divmod(@special_offers[item][QTY])
+      p @sorted_basket
+    end
   end
 
   def add_up_basket
@@ -85,5 +88,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
