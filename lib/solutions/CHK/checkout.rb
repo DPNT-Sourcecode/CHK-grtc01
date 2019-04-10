@@ -56,9 +56,9 @@ class Checkout
   def check_specials
     x = 0
     while x < @sorted_basket.length &&
-      @sorted_basket[x][ITEM] != 'SO' do
-        get_special_offer(x)
-      x = x+ 1
+      @sorted_basket[x][ITEM] != 'SO'
+      get_special_offer(x)
+      x += 1
     end
   end
 
@@ -87,6 +87,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
