@@ -51,12 +51,10 @@ class Checkout
 
   def check_specials
     p @sorted_basket
-    @sorted_basket.each do | item, qty, price |
-      if @special_offers.include?(item) &&
-        qty >= @special_offers[item][0]
-          qty = add_special(qty, price,
-            @special_offers[item][0], @special_offers[item][1])
-      end
+    x = 0
+    while x < @sorted_basket.length do
+      get_special_offer(x)
+      x = x+ 1
     end
   end
 
@@ -66,6 +64,11 @@ class Checkout
     offer_item = ['SO',x[0],spe_price]
     @sorted_basket << offer_item
     x[1]
+    @sorted_basket.each do | item, qty, price |
+      if @special_offers.include?(item) &&
+        qty >= @special_offers[item][0]
+          qty = add_special(qty, price,
+            @special_offers[item][0], @special_offers[item][1])
   end
 
   def add_up_basket
@@ -76,3 +79,4 @@ class Checkout
     @total_price
   end
 end
+
