@@ -20,8 +20,8 @@ class Checkout
   end
 
   def set_up
-    @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15 }
-    @special_offers = { 'A' => [3, 130], 'B' => [2, 45] }
+    @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, 'E' => 40 }
+    @special_offers = { 'A' => [5, 200],'A' => [3, 130], 'B' => [2, 45] }
     @total_price = 0
     @sorted_basket = []
   end
@@ -87,6 +87,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 

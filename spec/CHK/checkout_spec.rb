@@ -45,6 +45,13 @@ describe Checkout do
   it 'App should return 175 if AAABB are in the basket' do
     expect(subject.checkout('AAABB')).to eq(175)
   end
-  ## New products
+  ## New products & offers
+  it 'App should return 40 if E is in the basket' do
+    expect(subject.checkout('E')).to eq(40)
+  end
+  it 'App should return 200 if AAAAA are  in the basket' do
+    expect(subject.checkout('AAAAA')).to eq(200)
+  end
 end
+
 
