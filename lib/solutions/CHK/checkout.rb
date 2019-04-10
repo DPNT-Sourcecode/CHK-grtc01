@@ -73,10 +73,14 @@ class Checkout
     print ' In calc_all_special_offers '
     p @sorted_basket[num]
     item = @sorted_basket[num][ITEM]
+    p item
     offers_list = @special_offers[item]
+    p offers_list
     x = 0
     while x < offers_list.length
-      update_basket(num, offers_list[x])
+      if item[QTY] <= offers_list[x][QTY]
+        update_basket(num, offers_list[x])
+      end
       x += 1
     end
   end
@@ -105,6 +109,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
