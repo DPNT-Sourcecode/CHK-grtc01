@@ -7,8 +7,12 @@ class Checkout
   PRICE.freeze
   QTY = 0
   QTY.freeze
+  FREEBIE = 3
+  FREEBIE.freeze
   SPECIAL_OFFER_CODE = 'SO'
   SPECIAL_OFFER_CODE.freeze
+  FREEBIE_CODE = -1
+  FREEBIE_CODE.freeze
 
   def checkout(skus)
     set_up
@@ -20,7 +24,7 @@ class Checkout
 
   def set_up
     @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, 'E' => 40 }
-    @special_offers = { 'A' => [[5, 200],[3, 130]], 'B' => [[2, 45]] }
+    @special_offers = { 'A' => [[5, 200],[3, 130]], 'B' => [[2, 45]], 'E' => [2,FREEBIE_CODE,'B'] }
     @total_price = 0
     @sorted_basket = []
   end
@@ -113,6 +117,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
