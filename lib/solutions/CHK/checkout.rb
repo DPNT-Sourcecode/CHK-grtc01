@@ -15,7 +15,6 @@ class Checkout
     return -1 unless check_valid(skus)
 
     sort_basket(skus)
-    check_specials
     add_up_basket
   end
 
@@ -57,11 +56,14 @@ class Checkout
     x = 0
     while x < @sorted_basket.length &&
       @sorted_basket[x][ITEM] != 'SO'
-      check_special_offers(x)
+      if @special_offers.include?(@sorted_basket[x][ITEM])
+        calc_special_offers(x)
+      end 
       x += 1
     end
   end
 
+# By now I should have an item and a list of special offers
   def check_special_offers(num)
     p @sorted_basket[num]
     # Get first special offer first
@@ -103,3 +105,4 @@ class Checkout
     @total_price
   end
 end
+
