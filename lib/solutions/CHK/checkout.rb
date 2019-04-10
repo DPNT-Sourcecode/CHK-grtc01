@@ -5,6 +5,7 @@ class Checkout
   ITEM = 2
   PRICE = 1
   QTY = 0
+  SPECIAL_OFFER_CODE = 'SO'
 
   def checkout(skus)
     set_up
@@ -53,9 +54,10 @@ class Checkout
   end
 
   def check_specials
-    p @sorted_basket
+
     x = 0
-    while @sorted_basket[x][ITEM] != 'SO' &&
+      p @sorted_basket[x]
+    while @sorted_basket[x][ITEM] != SPECIAL_OFFER_CODE &&
       x < @sorted_basket.length do
         get_special_offer(x)
       x = x+ 1
@@ -72,7 +74,7 @@ class Checkout
       # Add a new element, update the old one
       offer_item = []
       x = qty.div(@special_offers[item][QTY])
-      offer_item[ITEM] = 'SO'
+      offer_item[ITEM] = SPECIAL_OFFER_CODE
       offer_item[PRICE] = @special_offers[item][PRICE]
       offer_item[QTY] = x
       @sorted_basket << offer_item
@@ -91,3 +93,4 @@ class Checkout
     @total_price
   end
 end
+
