@@ -65,8 +65,8 @@ class Checkout
 
 # By now I should have an item and a list of special offers
   def calc_all_special_offers(num)
-    # item = @sorted_basket[num][ITEM]
-    # offers_list = @special_offers[item]
+    p item = @sorted_basket[num][ITEM]
+    p offers_list = @special_offers[item]
     # x = 0
     # while x < offers_list.length
     # if @special_offers.include?(item)
@@ -105,3 +105,4 @@ class Checkout
     @total_price
   end
 end
+
