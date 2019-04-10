@@ -80,6 +80,10 @@ class Checkout
     calc_discounts(num)
   end
 
+  def check_freebies(num)
+    p ' check_freebies'
+  end
+
   def calc_discounts(num)
     print ' In calc_discounts '
     p num
@@ -124,12 +128,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
-
-
-
-
-
