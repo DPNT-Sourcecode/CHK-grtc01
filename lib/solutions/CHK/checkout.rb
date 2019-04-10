@@ -57,7 +57,7 @@ class Checkout
 p 1
     x = 0
       p @sorted_basket[x][ITEM]
-    while @sorted_basket[x][ITEM] != SPECIAL_OFFER_CODE &&
+    while @sorted_basket[x][ITEM] != 'SO' &&
       x < @sorted_basket.length do
         get_special_offer(x)
       x = x+ 1
@@ -93,5 +93,6 @@ p 1
     @total_price
   end
 end
+
 
 
