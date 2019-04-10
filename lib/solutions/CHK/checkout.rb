@@ -1,6 +1,5 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
-
   attr_reader :item_prices, :special_offers, :total_price, :sorted_basket
   ITEM = 2
   PRICE = 1
@@ -9,13 +8,11 @@ class Checkout
 
   def checkout(skus)
     set_up
-    if check_valid(skus)
-      sort_basket(skus)
-      check_specials
-      add_up_basket
-    else
-      return -1
-    end
+    return -1 unless check_valid(skus)
+
+    sort_basket(skus)
+    check_specials
+    add_up_basket
   end
 
   def set_up
@@ -87,4 +84,5 @@ class Checkout
     @total_price
   end
 end
+
 
