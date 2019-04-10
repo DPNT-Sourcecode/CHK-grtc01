@@ -71,14 +71,16 @@ class Checkout
 # By now I should have an item and a list of special offers
   def calc_all_special_offers(num)
     print ' In calc_all_special_offers '
+    p num
     p @sorted_basket[num]
     item = @sorted_basket[num][ITEM]
+    print 'Item is '
     p item
     offers_list = @special_offers[item]
     p offers_list
     x = 0
     while x < offers_list.length
-      if item[QTY] <= offers_list[x][QTY]
+      if @sorted_basket[num][QTY] >= offers_list[x][QTY]
         update_basket(num, offers_list[x])
       end
       x += 1
@@ -109,6 +111,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
