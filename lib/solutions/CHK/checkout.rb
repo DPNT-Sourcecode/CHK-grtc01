@@ -105,5 +105,3 @@ class Checkout
     @total_price
   end
 end
-
-
