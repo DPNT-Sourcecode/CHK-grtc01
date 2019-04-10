@@ -95,14 +95,13 @@ class Checkout
     print 'quantity is '
     p qty
     offer_item = []
-    x = qty.div(special_offers[QTY])
-    y = qty.mod(special_offers[QTY])
-    p 'x is ' + x
+    x = qty / special_offer[QTY]
+    y = qty % special_offer[QTY]
     offer_item[ITEM] = SPECIAL_OFFER_CODE
-    offer_item[PRICE] = special_offers[PRICE]
-    offer_item[QTY] = x[0]
+    offer_item[PRICE] = special_offer[PRICE]
+    offer_item[QTY] = x
     @sorted_basket << offer_item
-    @sorted_basket[num][QTY] = x[1]
+    @sorted_basket[num][QTY] = y
   end
 
   def add_up_basket
@@ -114,6 +113,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
