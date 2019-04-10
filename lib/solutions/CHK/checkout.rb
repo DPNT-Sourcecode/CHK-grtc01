@@ -77,13 +77,7 @@ class Checkout
       offer_item[QTY] = x
       @sorted_basket << offer_item
       # Update qty of remaining item
-      p 2222
-      p @sorted_basket
-      p 333
-      new_qty = qty.mod(@special_offers[item][QTY])
-      p new_qty
-      @sorted_basket[num][QTY] = qty.divmod(@special_offers[item][QTY])
-      p @sorted_basket
+      @sorted_basket[num][QTY] = qty % @special_offers[item][QTY]
     end
   end
 
@@ -96,6 +90,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
