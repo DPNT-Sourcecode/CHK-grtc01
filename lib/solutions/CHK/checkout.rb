@@ -56,7 +56,8 @@ class Checkout
     x = 0
     while x < @sorted_basket.length &&
       @sorted_basket[x][ITEM] != 'SO'
-      p 'in check specials, checking ' << @sorted_basket[x]
+      print 'in check specials, checking '
+      p @sorted_basket[x]
       if @special_offers.include?(@sorted_basket[x][ITEM])
         calc_all_special_offers(x)
       end
@@ -66,6 +67,8 @@ class Checkout
 
 # By now I should have an item and a list of special offers
   def calc_all_special_offers(num)
+    print ' In calc_all_special_offers'
+    p @sorted_basket[num]
     p item = @sorted_basket[num][ITEM]
     p offers_list = @special_offers[item]
     # x = 0
@@ -106,5 +109,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
