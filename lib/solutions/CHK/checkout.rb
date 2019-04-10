@@ -92,8 +92,11 @@ class Checkout
     p num
     p special_offer
     qty = @sorted_basket[num][QTY]
+    print 'quantity is '
+    p qty
     offer_item = []
-    x = qty.divmod(special_offers[QTY])
+    x = qty.div(special_offers[QTY])
+    y = qty.mod(special_offers[QTY])
     p 'x is ' + x
     offer_item[ITEM] = SPECIAL_OFFER_CODE
     offer_item[PRICE] = special_offers[PRICE]
@@ -111,6 +114,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
