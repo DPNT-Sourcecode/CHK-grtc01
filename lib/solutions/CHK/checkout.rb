@@ -80,11 +80,13 @@ class Checkout
   end
 
   def update_basket(num, special_offer)
+    p 'in update basket'
     p num
     p special_offers
     qty = @sorted_basket[num][QTY]
     offer_item = []
     x = qty.divmod(special_offers[QTY])
+    p 'x is ' + x
     offer_item[ITEM] = SPECIAL_OFFER_CODE
     offer_item[PRICE] = special_offers[PRICE]
     offer_item[QTY] = x[0]
@@ -101,6 +103,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
