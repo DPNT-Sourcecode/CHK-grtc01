@@ -46,6 +46,3 @@ describe Checkout do
     expect(subject.checkout('AAABB')).to eq(175)
   end
 end
-
-
-
