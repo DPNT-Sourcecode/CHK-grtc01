@@ -50,10 +50,12 @@ class Checkout
   end
   def set_discounts
     @discounts = []
-    @discounts << new Item('A',50)
-    @discounts << new Item('B',30)
-    @discounts << new Item('C',20)
-
+    # KM Duplication - must remove
+    a = new Item('A',50)
+    @discounts << new Discount(a,3,130)
+    @discounts << new Discount(a,5,200)
+    b = new Item('B',50)
+    @discounts << new Discount(b,2,45)
   end
 
   def set_up
@@ -186,6 +188,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
