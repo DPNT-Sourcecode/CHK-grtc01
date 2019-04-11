@@ -65,7 +65,6 @@ class Checkout
     @shop_items << c
     @shop_items << d
     @shop_items << e
-    p @shop_items
   end
 
   def set_up_discounts
@@ -76,7 +75,6 @@ class Checkout
     @discounts << d1
     @discounts << d2
     @discounts << d3
-    p @discounts
   end
 
   def set_up_freebies
@@ -98,17 +96,18 @@ class Checkout
   def check_item_valid(item)
     found = false
     @shop_items.each do |shop_item|
-     if item == shop_item.name
-       found = true
-     end
+      if item == shop_item.name
+        found = true
+      end
     end
+    found
   end
 
   def sort_basket(basket)
-    @shop_items.each do |item|
-      if basket.chars.count(item) > 0
+    @shop_items.each do |shop_item|
+      if basket.chars.count(shop_item) > 0
         item_array = []
-        item_array[0] = item
+        item_array[0] = shop_item
         item_array[1] = basket.chars.count(item)
         @sorted_basket << item_array
       end
@@ -208,3 +207,4 @@ class Checkout
   #   @total_price
   # end
 end
+
