@@ -181,9 +181,3 @@ describe Checkout do
   #   expect(subject.checkout('Z')).to eq(50)
   # end
 end
-
-
-
-
-
-
