@@ -7,8 +7,13 @@ class Item
   end
 end
 
-class BasketItem << Item
+class BasketItem < Item
   attr_reader :quantity
+  def initialize(name, price, qty)
+    @name = name
+    @price = price
+    @quantity = qty
+  end
 end
 
 class Discount
@@ -112,14 +117,11 @@ class Checkout
     @sorted_basket = []
     @shop_items.each do |shop_item|
       p shop_item
-      if basket.chars.count(shop_item.name) > 0
+      basket_qty = basket.chars.count(shop_item.name)
+      if basket_qty > 0
         p 'Item in basket'
-        item_array = []
-        item_array[0] = shop_item.name
-        item_array[1] = basket.chars.count(shop_item.name)
-        item_array[0] = shop_item.name
-        p item_array
-        @sorted_basket << item_array
+        basket_item = BasketItem.new(shop_item.name, basket_qty,shop_item.price )
+        @sorted_basket << basket_item
       end
       print 'Sorted basket looks like this ... '
       p @sorted_basket
@@ -218,6 +220,7 @@ class Checkout
   #   @total_price
   # end
 end
+
 
 
 
