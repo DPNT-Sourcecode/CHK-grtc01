@@ -104,7 +104,13 @@ class Checkout
   end
 
   def check_freebie_in_basket(freebie)
-    true
+    x = 0
+    while x < @sorted_basket.length
+     if @sorted_basket[x].include?(freebie)
+       return true
+    end
+    x += 1
+  end
   end
 
   def calc_discounts(num)
@@ -140,3 +146,4 @@ class Checkout
     @total_price
   end
 end
+
