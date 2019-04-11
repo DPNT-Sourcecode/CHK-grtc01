@@ -146,7 +146,7 @@ class Checkout
           offer_qty = basket_item.qty / discount.qty
           special_offer_item = BasketItem.new(basket_item.name,discount.price,offer_qty)
           specials << special_offer_item
-          remainder = basket_item.qty / discount.qty
+          remainder = basket_item.qty % discount.qty
           basket_item.update_quantity(remainder)
         end
       end
@@ -246,6 +246,8 @@ class Checkout
     @sorted_basket.each do |basket_item|
       @total_price += basket_item.qty * basket_item.price
     end
-    @total_price
+
+    p @total_price
   end
 end
+

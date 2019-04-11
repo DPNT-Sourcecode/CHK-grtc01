@@ -36,16 +36,16 @@ describe Checkout do
   #   expect(subject.checkout('ABCDX')).to eq(-1)
   # end
   # Special Offers
-  it 'App should return 130 if AAA are in the basket' do
-    expect(subject.checkout('AAA')).to eq(130)
-  end
+  # it 'App should return 130 if AAA are in the basket' do
+  #   expect(subject.checkout('AAA')).to eq(130)
+  # end
   # it 'App should return 180 if AAAA are in the basket' do
   #   expect(subject.checkout('AAAA')).to eq(180)
   # end
-  # it 'App should return 175 if AAABB are in the basket' do
-  #   expect(subject.checkout('AAABB')).to eq(175)
-  # end
-  ## New products & offers
+  it 'App should return 175 if AAABB are in the basket' do
+    expect(subject.checkout('AAABB')).to eq(175)
+  end
+  # # New products & offers
   # it 'App should return 40 if E is in the basket' do
   #   expect(subject.checkout('E')).to eq(40)
   # end
@@ -57,3 +57,4 @@ describe Checkout do
   #   expect(subject.checkout('EEB')).to eq(80)
   # end
 end
+
