@@ -181,5 +181,27 @@ describe Checkout do
    expect(subject.checkout('AA')).to eq(100)
  end
 
-
+## Groups
+  it 'App should return 45 if STX are in the basket' do
+    expect(subject.checkout('STX')).to eq(45)
+  end
+  # it 'App should return 45 if STY are in the basket' do
+  #   expect(subject.checkout('STY')).to eq(45)
+  # end
+  # it 'App should return 45 if STZ are in the basket' do
+  #   expect(subject.checkout('STZ')).to eq(45)
+  # end
+  # it 'App should return 45 if TXY are in the basket' do
+  #   expect(subject.checkout('TXY')).to eq(45)
+  # end
+  # it 'App should return 45 if TXZ are in the basket' do
+  #   expect(subject.checkout('TXZ')).to eq(45)
+  # end
+  # it 'App should return 45 if TYZ are in the basket' do
+  #   expect(subject.checkout('TYZ')).to eq(45)
+  # end
+  # it 'App should return 45 if XYZ are in the basket' do
+  #   expect(subject.checkout('XYZ')).to eq(45)
+  # end
 end
+
