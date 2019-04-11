@@ -132,8 +132,10 @@ class Checkout
   def calculate_total
     print 'Basket after sort ...'
     p @sorted_basket
-    check_discounts
     check_freebies
+    print 'Basket after freebies ...'
+    p @sorted_basket
+    check_discounts
     add_up_basket
   end
 
@@ -168,6 +170,7 @@ class Checkout
   end
 
   def make_freebie_free(item, qty)
+    p 'In MAKE FREEBIE FREE  '
     @sorted_basket.each do |basket_item|
       if basket_item.name == item && qty >= basket_item.qty
         new_qty = 0
@@ -176,6 +179,7 @@ class Checkout
         elsif basket_item.qty > qty
            new_qty = qty - basket_item.qty
         end
+        p basket_item
         basket_item.update_quantity(new_qty)
       end
     end
@@ -190,4 +194,5 @@ class Checkout
     @total_price
   end
 end
+
 
