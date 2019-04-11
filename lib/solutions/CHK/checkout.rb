@@ -71,8 +71,6 @@ class Checkout
     @sorted_basket.length
     while x < @sorted_basket.length &&
       @sorted_basket[x][ITEM] != 'SO'
-      print 'in check freebies, checking '
-      p @sorted_basket[x]
       if @freebies.include?(@sorted_basket[x][ITEM])
         calc_freebies(x)
       end
@@ -85,8 +83,6 @@ class Checkout
     @sorted_basket.length
     while x < @sorted_basket.length &&
       @sorted_basket[x][ITEM] != 'SO'
-      print 'in check specials, checking '
-      p @sorted_basket[x]
       if @discounts.include?(@sorted_basket[x][ITEM])
         calc_discounts(x)
       end
@@ -94,19 +90,16 @@ class Checkout
     end
   end
 
-  def check_freebies(num)
-    p ' check_freebies'
+  def calc_freebies(num)
+    p ' calc_freebies'
+    p @sorted_basket[num]
+    item = @sorted_basket[num][ITEM]
+    p @freebies[item]
   end
 
   def calc_discounts(num)
-    print ' In calc_discounts '
-    p num
-    p @sorted_basket[num]
     item = @sorted_basket[num][ITEM]
-    print 'Item is '
-    p item
     offers_list = @discounts[item]
-    p offers_list
     x = 0
     while x < offers_list.length
       if @sorted_basket[num][QTY] >= offers_list[x][QTY]
@@ -142,6 +135,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
