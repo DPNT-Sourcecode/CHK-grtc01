@@ -18,6 +18,15 @@ class Discount
   end
 end
 
+class Freebie
+  attr_reader :item, :qualifying_qty, :free_item
+  def initialize(item, qty, free_item)
+    @item = item
+    @qualifying_qty = qty
+    @free_item = free_item
+  end
+end
+
 class Basket
   attr_reader :items, :total
   def initialize()
@@ -63,21 +72,19 @@ class Checkout
 
   def set_up_discounts
     @discounts = []
-    # KM Duplication - must remove
-    a = Item.new('A',50)
-    ad = Discount.new('A',3,130)
-    adn = Discount.new(a,5,200)
-    @discounts << ad
-    @discounts << adn
-    b = Item.new('B',50)
-    bd = Discount.new(b,2,45)
-    @discounts << bd
+    d1 = Discount.new('A',3,130)
+    d2 = Discount.new('A',5,200)
+    d3 = Discount.new('B',2,45)
+    @discounts << d1
+    @discounts << d2
+    @discounts << d3
     p @discounts
   end
 
   def set_up_freebies
     @freebies = []
-    basket_item {'E' => [2,'B'] }
+    f1 = Freebie.new('E',2,'B')
+    @freebies << f1
   end
   #
   # def check_valid(basket)
@@ -196,5 +203,6 @@ class Checkout
   #   @total_price
   # end
 end
+
 
 
