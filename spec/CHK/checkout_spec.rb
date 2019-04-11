@@ -28,9 +28,9 @@ describe Checkout do
   # it 'App should return 115 if ABCD are in the basket' do
   #   expect(subject.checkout('ABCD')).to eq(115)
   # end
-  # it 'App should return 100 if AA are in the basket' do
-  #   expect(subject.checkout('AA')).to eq(100)
-  # end
+  it 'App should return 100 if AA are in the basket' do
+    expect(subject.checkout('AA')).to eq(100)
+  end
   # # Multiple Items Edge Case
   # it 'App should return -1 if ABCDX are in the basket' do
   #   expect(subject.checkout('ABCDX')).to eq(-1)
@@ -57,3 +57,4 @@ describe Checkout do
   #   expect(subject.checkout('EEB')).to eq(80)
   # end
 end
+

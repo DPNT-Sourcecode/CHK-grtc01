@@ -53,7 +53,7 @@ class Checkout
     return -1 unless check_valid(skus)
 
     sort_basket(skus)
-    # add_up_basket
+    add_up_basket
   end
 
   def set_up_shop
@@ -120,7 +120,7 @@ class Checkout
       basket_qty = basket.chars.count(shop_item.name)
       if basket_qty > 0
         p 'Item in basket'
-        basket_item = BasketItem.new(shop_item.name, basket_qty,shop_item.price )
+        basket_item = BasketItem.new(shop_item.name,shop_item.price,basket_qty)
         @sorted_basket << basket_item
       end
       print 'Sorted basket looks like this ... '
@@ -211,15 +211,16 @@ class Checkout
   #   p @sorted_basket
   # end
   #
-  # def add_up_basket
-  #   x = 0
-  #   while x < @sorted_basket.length
-  #     @total_price += @sorted_basket[x][QTY] * @sorted_basket[x][PRICE]
-  #     x += 1
-  #   end
-  #   @total_price
-  # end
+  def add_up_basket
+    x = 0
+    while x < @sorted_basket.length
+      @total_price += @sorted_basket[x][QTY] * @sorted_basket[x][PRICE]
+      x += 1
+    end
+    @total_price
+  end
 end
+
 
 
 
