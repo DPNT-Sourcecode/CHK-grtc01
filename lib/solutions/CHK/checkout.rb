@@ -130,11 +130,7 @@ class Checkout
   end
 
   def calculate_total
-    print 'Basket after sort ...'
-    p @sorted_basket
     check_freebies
-    print 'Basket after freebies ...'
-    p @sorted_basket
     check_discounts
     add_up_basket
   end
@@ -184,7 +180,6 @@ class Checkout
   end
 
   def add_up_basket
-    p sorted_basket
     @total_price = 0
     @sorted_basket.each do |basket_item|
       @total_price += basket_item.qty * basket_item.price
@@ -192,3 +187,4 @@ class Checkout
     @total_price
   end
 end
+
