@@ -102,10 +102,3 @@ describe Checkout do
     expect(subject.checkout('FFFFFF')).to eq(40)
   end
 end
-
-
-
-
-
-
-
