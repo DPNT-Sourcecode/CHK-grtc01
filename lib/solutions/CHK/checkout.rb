@@ -162,9 +162,10 @@ class Checkout
       @freebies.each do |freebie|
         if basket_item.name == freebie.name &&
           eligable(basket_item.qty,freebie.qty,freebie.min_qty)
-          p @sorted_basket
+          p basket_item
           p 'Update FREEBIES'
-              no_freebies = basket_item.qty % freebie.qty
+          p freebie
+          no_freebies = basket_item.qty / freebie.qty
           # Need to find the freebie
           make_freebie_free(freebie.free_item,no_freebies )
           p @sorted_basket
@@ -206,3 +207,4 @@ class Checkout
     @total_price
   end
 end
+
