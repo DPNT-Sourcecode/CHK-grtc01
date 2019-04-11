@@ -2,8 +2,6 @@
 class Item
   attr_reader :name, :price
   def initialize(name, price)
-    print ' in initialize item '
-    p name
     @name = name
     @price = price
   end
@@ -86,15 +84,20 @@ class Checkout
     f1 = Freebie.new('E',2,'B')
     @freebies << f1
   end
-  #
-  # def check_valid(basket)
-  #   basket_valid = true
-  #   x = 0
-  #   while basket_valid && (x < basket.chars.length)
-  #
-  #   basket_valid
-  # end
-  #
+
+  def check_valid(basket)
+    basket_valid = true
+    x = 0
+    while basket_valid && (x < basket.chars.length)
+      basket_valid = check_item_valid(basket.chars[x])
+      x += 1
+    end
+    basket_valid
+  end
+
+  def check_item_valid(item)
+    p item
+  end
   # def sort_basket(basket)
   #   basic_items(basket)
   #   check_specials
@@ -203,6 +206,7 @@ class Checkout
   #   @total_price
   # end
 end
+
 
 
 
