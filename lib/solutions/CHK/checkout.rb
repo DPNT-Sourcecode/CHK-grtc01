@@ -1,4 +1,28 @@
 # noinspection RubyUnusedLocalVariable
+class Item
+  attr_reader :name, :price
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+end
+
+class Discount
+  attr_reader :item, :qualifying_qty, :new_price
+  def initialize(item, qty, price)
+    @item = item
+    @qualifying_qty = qty
+    @new_price = price
+  end
+end
+
+class Basket
+  attr_reader :items, :total
+  def initialize(items)
+    @items = items
+    @total = 0
+  end
+end
 class Checkout
   attr_reader :item_prices, :discounts, :freebies, :total_price, :sorted_basket
   ITEM = 2
@@ -151,3 +175,4 @@ class Checkout
     @total_price
   end
 end
+
