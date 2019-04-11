@@ -116,15 +116,11 @@ class Checkout
   def sort_basket(basket)
     @sorted_basket = []
     @shop_items.each do |shop_item|
-      p shop_item
       basket_qty = basket.chars.count(shop_item.name)
       if basket_qty > 0
-        p 'Item in basket'
         basket_item = BasketItem.new(shop_item.name,shop_item.price,basket_qty)
         @sorted_basket << basket_item
       end
-      print 'Sorted basket looks like this ... '
-      p @sorted_basket
     end
   end
   #
@@ -219,6 +215,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
