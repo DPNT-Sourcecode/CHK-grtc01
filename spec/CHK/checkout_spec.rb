@@ -43,82 +43,12 @@ describe Checkout do
   it 'App should return 40 if E is in the basket' do
     expect(subject.checkout('E')).to eq(40)
   end
-  it 'App should return 180 if AAAA are  in the basket' do
-    expect(subject.checkout('AAAA')).to eq(180)
-  end
-  it 'App should return 200 if AAAAA are  in the basket' do
-    expect(subject.checkout('AAAAA')).to eq(200)
-  end
-  it 'App should return 250 if AAAAAA are  in the basket' do
-    expect(subject.checkout('AAAAAA')).to eq(250)
-  end
-  it 'App should return 250 if AAABAAA are  in the basket' do
-    expect(subject.checkout('AAABAAA')).to eq(280)
-  end
-  # 2E get one B free
-  it 'App should return 80 if EEB are  in the basket' do
-    expect(subject.checkout('EEB')).to eq(80)
-  end
-  it 'App should return 80+100 if EEBAA are  in the basket' do
-    expect(subject.checkout('EEBAA')).to eq(180)
-  end
-  it 'App should return 160 if EEBEEB are  in the basket' do
-    expect(subject.checkout('EEBEEB')).to eq(160)
-  end
-  it 'App should return 280 if ABCDEABCDE are  in the basket' do
-    expect(subject.checkout('ABCDEABCDE')).to eq(280)
-  end
-  it 'App should return 280 if CCADDEEBBA are  in the basket' do
-    expect(subject.checkout('CCADDEEBBA')).to eq(280)
-  end
-  it 'App should return 455 if AAAAAEEBAAABB are  in the basket' do
-    expect(subject.checkout('AAAAAEEBAAABB')).to eq(455)
-  end
+
+
   it 'App should return 10 if F are  in the basket' do
     expect(subject.checkout('F')).to eq(10)
   end
-  it 'App should return 20 if FF are  in the basket' do
-    expect(subject.checkout('FF')).to eq(20)
-  end
-  it 'App should return 20 if FFF are  in the basket' do
-    expect(subject.checkout('FFF')).to eq(20)
-  end
-  it 'App should return 30 if FFFF are  in the basket' do
-    expect(subject.checkout('FFFF')).to eq(30)
-  end
-  it 'App should return 40 if FFFFFF are  in the basket' do
-    expect(subject.checkout('FFFFFF')).to eq(40)
-  end
-  # +------+-------+------------------------+
-  # | Item | Price | Special offers         |
-  # +------+-------+------------------------+
-  # | A    | 50    | 3A for 130, 5A for 200 |
-  # | B    | 30    | 2B for 45              |
-  # | C    | 20    |                        |
-  # | D    | 15    |                        |
-  # | E    | 40    | 2E get one B free      |
-  # | F    | 10    | 2F get one F free      |
-  # | G    | 20    |                        |
-  # | H    | 10    | 5H for 45, 10H for 80  |
-  # | I    | 35    |                        |
-  # | J    | 60    |                        |
-  # | K    | 80    | 2K for 150             |
-  # | L    | 90    |                        |
-  # | M    | 15    |                        |
-  # | N    | 40    | 3N get one M free      |
-  # | O    | 10    |                        |
-  # | P    | 50    | 5P for 200             |
-  # | Q    | 30    | 3Q for 80              |
-  # | R    | 50    | 3R get one Q free      |
-  # | S    | 30    |                        |
-  # | T    | 20    |                        |
-  # | U    | 40    | 3U get one U free      |
-  # | V    | 50    | 2V for 90, 3V for 130  |
-  # | W    | 20    |                        |
-  # | X    | 90    |                        |
-  # | Y    | 10    |                        |
-  # | Z    | 50    |                        |
-  # +------+-------+------------------------+
+
   it 'App should return 20 if G are  in the basket' do
     expect(subject.checkout('G')).to eq(20)
   end
@@ -143,7 +73,6 @@ describe Checkout do
   it 'App should return 40 if N are  in the basket' do
     expect(subject.checkout('N')).to eq(40)
   end
-
   it 'App should return 10 if O are  in the basket' do
     expect(subject.checkout('O')).to eq(10)
   end
@@ -182,6 +111,18 @@ describe Checkout do
   end
 
  ### Special offers
+ it 'App should return 180 if AAAA are  in the basket' do
+   expect(subject.checkout('AAAA')).to eq(180)
+ end
+ it 'App should return 200 if AAAAA are  in the basket' do
+   expect(subject.checkout('AAAAA')).to eq(200)
+ end
+ it 'App should return 250 if AAAAAA are  in the basket' do
+   expect(subject.checkout('AAAAAA')).to eq(250)
+ end
+ it 'App should return 250 if AAABAAA are  in the basket' do
+   expect(subject.checkout('AAABAAA')).to eq(280)
+ end
  it 'App should return 45 if HHHHH are  in the basket' do
    expect(subject.checkout('HHHHH')).to eq(45)
  end
@@ -203,4 +144,41 @@ describe Checkout do
  it 'App should return 90 if VV are  in the basket' do
    expect(subject.checkout('VV')).to eq(90)
  end
+
+ ## Freebies
+ it 'App should return 80 if EEB are  in the basket' do
+   expect(subject.checkout('EEB')).to eq(80)
+ end
+ it 'App should return 20 if FF are  in the basket' do
+   expect(subject.checkout('FF')).to eq(20)
+ end
+ it 'App should return 20 if FFF are  in the basket' do
+   expect(subject.checkout('FFF')).to eq(20)
+ end
+ it 'App should return 30 if FFFF are  in the basket' do
+   expect(subject.checkout('FFFF')).to eq(30)
+ end
+ it 'App should return 40 if FFFFFF are  in the basket' do
+   expect(subject.checkout('FFFFFF')).to eq(40)
+ end
+
+ ## Mixed Basket
+ # 2E get one B free
+
+ it 'App should return 80+100 if EEBAA are  in the basket' do
+   expect(subject.checkout('EEBAA')).to eq(180)
+ end
+ it 'App should return 160 if EEBEEB are  in the basket' do
+   expect(subject.checkout('EEBEEB')).to eq(160)
+ end
+ it 'App should return 280 if ABCDEABCDE are  in the basket' do
+   expect(subject.checkout('ABCDEABCDE')).to eq(280)
+ end
+ it 'App should return 280 if CCADDEEBBA are  in the basket' do
+   expect(subject.checkout('CCADDEEBBA')).to eq(280)
+ end
+ it 'App should return 455 if AAAAAEEBAAABB are  in the basket' do
+   expect(subject.checkout('AAAAAEEBAAABB')).to eq(455)
+ end
 end
+
