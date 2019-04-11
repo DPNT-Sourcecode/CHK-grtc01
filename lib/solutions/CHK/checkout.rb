@@ -53,6 +53,7 @@ class Checkout
     return -1 unless check_valid(skus)
 
     sort_basket(skus)
+    calculate_total
     add_up_basket
   end
 
@@ -123,6 +124,12 @@ class Checkout
       end
     end
   end
+
+  def calculate_total
+    check_discounts
+    add_up_basket
+  end
+
   #
   # def check_specials
   #   check_freebies
@@ -217,4 +224,5 @@ class Checkout
     @total_price
   end
 end
+
 
