@@ -48,25 +48,30 @@ class Checkout
 
   def set_up_prices
     @shop_items = []
-    a = new Item('A',50)
+    a = Item.new('A',50)
     b = new Item('B',30)
     c = new Item('C',20)
-    b =
+    d = new Item('D',15)
+    e = new Item('E',40)
     @shop_items << a
     @shop_items << b
     @shop_items << c
-    @shop_items <<
-    new Item('D',15)
-    @shop_items << new Item('E',40)
+    @shop_items << d
+    @shop_items << e
+    p @shop_items
   end
   def set_up_discounts
     @discounts = []
     # KM Duplication - must remove
     a = new Item('A',50)
-    @discounts << new Discount(a,3,130)
-    @discounts << new Discount(a,5,200)
+    ad = new Discount(a,3,130)
+    adn = new Discount(a,5,200)
+    @discounts << ad
+    @discounts << adn
     b = new Item('B',50)
-    @discounts << new Discount(b,2,45)
+    bd = new Discount(b,2,45)
+    @discounts << bd
+    p @discounts
   end
 
   def set_up_freebies
@@ -189,3 +194,4 @@ class Checkout
   #   @total_price
   # end
 end
+
