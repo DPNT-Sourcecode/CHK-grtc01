@@ -96,11 +96,12 @@ class Checkout
   end
 
   def check_item_valid(item)
+
     p item
   end
 
   def sort_basket(basket)
-    @shop_items.each do |item, price|
+    @shop_items.each do |item|
       if basket.chars.count(item) > 0
         item_array = []
         item_array[0] = item
@@ -203,6 +204,7 @@ class Checkout
   #   @total_price
   # end
 end
+
 
 
 
