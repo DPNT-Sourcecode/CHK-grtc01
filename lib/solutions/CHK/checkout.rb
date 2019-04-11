@@ -37,7 +37,7 @@ class Basket
 end
 
 class Checkout
-  attr_reader :shop_items, :discounts
+  attr_reader :shop_items, :discounts, :sorted_basket
 
   def checkout(skus)
     set_up_shop
@@ -206,6 +206,7 @@ class Checkout
   #   @total_price
   # end
 end
+
 
 
 
