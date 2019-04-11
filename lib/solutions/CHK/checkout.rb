@@ -11,8 +11,6 @@ class Checkout
   FREEBIE.freeze
   SPECIAL_OFFER_CODE = 'SO'
   SPECIAL_OFFER_CODE.freeze
-  FREEBIE_CODE = -1
-  FREEBIE_CODE.freeze
 
   def checkout(skus)
     set_up
@@ -26,7 +24,7 @@ class Checkout
     @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, 'E' => 40 }
     @discounts = { 'A' => [[5, 200],[3, 130]],
                         'B' => [[2, 45]]}
-    @freebies = {'E' => [2,FREEBIE_CODE,'B'] }
+    @freebies = {'E' => [2,'B'] }
 
     @total_price = 0
     @sorted_basket = []
@@ -110,12 +108,7 @@ class Checkout
   end
 
   def update_basket(num, special_offer)
-    p 'in update basket'
-    p num
-    p special_offer
     qty = @sorted_basket[num][QTY]
-    print 'quantity is '
-    p qty
     offer_item = []
     x = qty / special_offer[QTY]
     y = qty % special_offer[QTY]
@@ -135,6 +128,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
