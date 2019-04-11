@@ -157,9 +157,7 @@ class Checkout
       @freebies.each do |freebie|
         if basket_item.name == freebie.name &&
           basket_item.qty >= freebie.qty
-
           no_freebies = basket_item.qty / freebie.qty
-          p no_freebies
           # Need to find the freebie
           make_freebie_free(freebie.free_item,no_freebies )
         end
@@ -170,10 +168,6 @@ class Checkout
   def make_freebie_free(item, qty)
     @sorted_basket.each do |basket_item|
       if basket_item.name == item && qty >= basket_item.qty
-        print 'Free Quantity '
-        p qty
-        print 'Basket Quantity '
-        p basket_item.qty
         new_qty = 0
         if basket_item.qty > qty
            new_qty = basket_item.qty - qty
@@ -194,9 +188,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
-
-
