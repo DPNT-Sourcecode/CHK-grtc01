@@ -182,12 +182,3 @@ class Checkout
     p @total_price
   end
 end
-
-
-
-
-
-
-
-
-
