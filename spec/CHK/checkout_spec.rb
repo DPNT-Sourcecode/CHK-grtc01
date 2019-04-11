@@ -183,9 +183,3 @@ describe Checkout do
 
 
 end
-
-
-
-
-
-
