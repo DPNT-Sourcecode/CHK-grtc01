@@ -174,9 +174,11 @@ class Checkout
   end
 
   def set_up_groups
-    g = Group.new([S,T,X,Y,Z],3,45)
+    group_list = Array.new['S','T','X','Y','Z']
+    g = Group.new(group_list,3,45)
     @groups << g
   end
+
   def check_valid(basket)
     basket_valid = true
     x = 0
@@ -272,4 +274,5 @@ class Checkout
     @total_price
   end
 end
+
 
