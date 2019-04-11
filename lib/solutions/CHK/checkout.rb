@@ -172,6 +172,12 @@ class Checkout
     p 'In make_freebie_free'
     p item
     p qty
+    @sorted_basket.each do |basket_item|
+      if basket_item.name == item
+        new_qty = basket_item.qty - qty
+        basket_item.update_quantity(new_qty)
+      end
+    end 
   end
 
   def add_up_basket
@@ -182,3 +188,4 @@ class Checkout
     @total_price
   end
 end
+
