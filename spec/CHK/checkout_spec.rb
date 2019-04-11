@@ -74,4 +74,20 @@ describe Checkout do
   it 'App should return 455 if AAAAAEEBAAABB are  in the basket' do
     expect(subject.checkout('AAAAAEEBAAABB')).to eq(455)
   end
+
+  # Our price table and offers:
+  # +------+-------+------------------------+
+  # | Item | Price | Special offers         |
+  # +------+-------+------------------------+
+  # | A    | 50    | 3A for 130, 5A for 200 |
+  # | B    | 30    | 2B for 45              |
+  # | C    | 20    |                        |
+  # | D    | 15    |                        |
+  # | E    | 40    | 2E get one B free      |
+  # | F    | 10    | 2F get one F free      |
+  # +------+-------+------------------------+
+  it 'App should return 10 if F are  in the basket' do
+    expect(subject.checkout('F')).to eq(10)
+  end
 end
+

@@ -74,11 +74,13 @@ class Checkout
     c = Item.new('C',20)
     d = Item.new('D',15)
     e = Item.new('E',40)
+    f = Item.new('F',10)
     @shop_items << a
     @shop_items << b
     @shop_items << c
     @shop_items << d
     @shop_items << e
+    @shop_items << f
   end
 
   def set_up_discounts
@@ -187,4 +189,5 @@ class Checkout
     @total_price
   end
 end
+
 
