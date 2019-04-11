@@ -152,6 +152,7 @@ class Checkout
           remainder = basket_item.qty % discount.qty
           basket_item.update_quantity(remainder)
         end
+        p specials
       end
       @sorted_basket += specials
       p basket_item
@@ -253,5 +254,6 @@ class Checkout
     p @total_price
   end
 end
+
 
 
