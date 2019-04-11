@@ -7,7 +7,7 @@ class Checkout
   PRICE.freeze
   QTY = 0
   QTY.freeze
-  FREEBIE = 3
+  FREEBIE = 2
   FREEBIE.freeze
   SPECIAL_OFFER_CODE = 'SO'
   SPECIAL_OFFER_CODE.freeze
@@ -93,6 +93,7 @@ class Checkout
     p @sorted_basket[num]
     item = @sorted_basket[num][ITEM]
     p @freebies[item]
+    
   end
 
   def calc_discounts(num)
@@ -128,6 +129,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
