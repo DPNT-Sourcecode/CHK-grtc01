@@ -164,10 +164,12 @@ class Checkout
           print 'Updated ....'
           p basket_item
         end
+        print 'Specials...'
         p specials
+        print 'Basket now looks like is ...'
+        p @sorted_basket
       end
       @sorted_basket += specials
-      p basket_item
     end
   end
 
@@ -182,3 +184,4 @@ class Checkout
     p @total_price
   end
 end
+
