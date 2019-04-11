@@ -18,8 +18,8 @@ end
 
 class Discount
   attr_reader :item, :qualifying_qty, :new_price
-  def initialize(item, qty, price)
-    @item = item
+  def initialize(name, qty, price)
+    @name = item
     @qualifying_qty = qty
     @new_price = price
   end
@@ -134,6 +134,11 @@ class Checkout
     print 'In check discounts '
     p @discounts
     @sorted_basket.each do |basket_item|
+      @discounts.each do |discount|
+        if basket_item.name == discount.name
+          p' Discount City'
+        end
+      end
       p basket_item
     end
   end
@@ -231,6 +236,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
