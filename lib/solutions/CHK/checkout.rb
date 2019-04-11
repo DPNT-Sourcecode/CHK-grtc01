@@ -208,6 +208,8 @@ class Checkout
   # end
   #
   def add_up_basket
+    print 'Basket now looks like is ...'
+    p @sorted_basket
     @total_price = 0
     @sorted_basket.each do |basket_item|
       @total_price += basket_item.quantity * basket_item.price
@@ -215,3 +217,4 @@ class Checkout
     @total_price
   end
 end
+
