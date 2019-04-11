@@ -230,9 +230,14 @@ class Checkout
         end
         if qualifying_counter == group.qty
           p 'RESULT!'
+          update_basket_with_group_discount(group)
         end
       end
     end
+  end
+
+  def update_basket_with_group_discount(group)
+    p 'Update Basket'
   end
   def check_discounts
     specials = []
@@ -291,10 +296,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
-
-
-
