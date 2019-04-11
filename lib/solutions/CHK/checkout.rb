@@ -60,7 +60,7 @@ class Basket
 end
 
 class Checkout
-  attr_reader :shop_items, :discounts, :sorted_basket
+  attr_reader :shop_items, :discounts, :sorted_basket, :freebies, :groups
 
   def checkout(skus)
     set_up_shop
@@ -174,7 +174,7 @@ class Checkout
   end
 
   def set_up_groups
-    group_list = Array.new['S','T','X','Y','Z']
+    group_list = ['S','T','X','Y','Z']
     g = Group.new(group_list,3,45)
     @groups << g
   end
@@ -274,5 +274,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
