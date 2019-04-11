@@ -1,6 +1,10 @@
 # noinspection RubyUnusedLocalVariable
 class Item
   attr_reader :name, :price
+
+  def initialize
+  end
+
   def initialize(name, price)
     @name = name
     @price = price
@@ -138,12 +142,14 @@ class Checkout
         if basket_item.name == discount.name &&
           basket_item.qty >= discount.qty
           p' Discount City'
+          offer_qty = basket_item.qty / discount.qty
+          special_offer_item = Item.new(basket_item.name)
         end
       end
       p basket_item
     end
   end
-  
+
   #
   # def check_specials
   #   check_freebies
@@ -238,6 +244,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
