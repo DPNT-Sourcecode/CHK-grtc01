@@ -143,20 +143,23 @@ describe Checkout do
  end
 
  ## Freebies
- it 'App should return 80 if EEB are  in the basket' do
+ it 'App should return 80 if EEB are in the basket' do
    expect(subject.checkout('EEB')).to eq(80)
  end
- it 'App should return 20 if FF are  in the basket' do
+ it 'App should return 20 if FF are in the basket' do
    expect(subject.checkout('FF')).to eq(20)
  end
- it 'App should return 20 if FFF are  in the basket' do
+ it 'App should return 20 if FFF are in the basket' do
    expect(subject.checkout('FFF')).to eq(20)
  end
- it 'App should return 30 if FFFF are  in the basket' do
+ it 'App should return 30 if FFFF are in the basket' do
    expect(subject.checkout('FFFF')).to eq(30)
  end
- it 'App should return 40 if FFFFFF are  in the basket' do
+ it 'App should return 40 if FFFFFF are in the basket' do
    expect(subject.checkout('FFFFFF')).to eq(40)
+ end
+ it 'App should return 120 if NNNM are in the basket' do
+   expect(subject.checkout('NNNM')).to eq(120)
  end
 
  ## Mixed Basket
@@ -175,5 +178,6 @@ describe Checkout do
 
 
 end
+
 
 

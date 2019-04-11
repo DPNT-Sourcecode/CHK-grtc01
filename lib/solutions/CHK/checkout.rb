@@ -70,58 +70,58 @@ class Checkout
 
   def set_up_prices
     @shop_items = []
-    f = Item.new('A',50)
-    @shop_items << f
-    f = Item.new('B',30)
-    @shop_items << f
-    f = Item.new('C',20)
-    @shop_items << f
-    f = Item.new('D',15)
-    @shop_items << f
-    f = Item.new('E',40)
-    @shop_items << f
-    f = Item.new('F',10)
-    @shop_items << f
-    f = Item.new('G',20)
-    @shop_items << f
-    f = Item.new('H',10)
-    @shop_items << f
-    f = Item.new('I',35)
-    @shop_items << f
-    f = Item.new('J',60)
-    @shop_items << f
-    f = Item.new('K',80)
-    @shop_items << f
-    f = Item.new('L',90)
-    @shop_items << f
-    f = Item.new('M',15)
-    @shop_items << f
-    f = Item.new('N',40)
-    @shop_items << f
-    f = Item.new('O',10)
-    @shop_items << f
-    f = Item.new('P',50)
-    @shop_items << f
-    f = Item.new('Q',30)
-    @shop_items << f
-    f = Item.new('R',50)
-    @shop_items << f
-    f = Item.new('S',30)
-    @shop_items << f
-    f = Item.new('T',20)
-    @shop_items << f
-    f = Item.new('U',40)
-    @shop_items << f
-    f = Item.new('V',50)
-    @shop_items << f
-    f = Item.new('W',20)
-    @shop_items << f
-    f = Item.new('X',90)
-    @shop_items << f
-    f = Item.new('Y',10)
-    @shop_items << f
-    f = Item.new('Z',50)
-    @shop_items << f
+    i = Item.new('A',50)
+    @shop_items << i
+    i = Item.new('B',30)
+    @shop_items << i
+    i = Item.new('C',20)
+    @shop_items << i
+    i = Item.new('D',15)
+    @shop_items << i
+    i = Item.new('E',40)
+    @shop_items << i
+    i = Item.new('F',10)
+    @shop_items << i
+    i = Item.new('G',20)
+    @shop_items << i
+    i = Item.new('H',10)
+    @shop_items << i
+    i = Item.new('I',35)
+    @shop_items << i
+    i = Item.new('J',60)
+    @shop_items << i
+    i = Item.new('K',80)
+    @shop_items << i
+    i = Item.new('L',90)
+    @shop_items << i
+    i = Item.new('M',15)
+    @shop_items << i
+    i = Item.new('N',40)
+    @shop_items << i
+    i = Item.new('O',10)
+    @shop_items << i
+    i = Item.new('P',50)
+    @shop_items << i
+    i = Item.new('Q',30)
+    @shop_items << i
+    i = Item.new('R',50)
+    @shop_items << i
+    i = Item.new('S',30)
+    @shop_items << i
+    i = Item.new('T',20)
+    @shop_items << i
+    i = Item.new('U',40)
+    @shop_items << i
+    i = Item.new('V',50)
+    @shop_items << i
+    i = Item.new('W',20)
+    @shop_items << i
+    i = Item.new('X',90)
+    @shop_items << i
+    i = Item.new('Y',10)
+    @shop_items << i
+    i = Item.new('Z',50)
+    @shop_items << i
 
   end
 
@@ -151,10 +151,10 @@ class Checkout
 
   def set_up_freebies
     @freebies = []
-    f1 = Freebie.new('E',2,'B')
-    @freebies << f1
-    f2 = Freebie.new('F',3,'F',1)
-    @freebies << f2
+    f = Freebie.new('E',2,'B')
+    @freebies << f
+    f = Freebie.new('F',3,'F',1)
+    @freebies << f
   end
 
   def check_valid(basket)
@@ -252,3 +252,4 @@ class Checkout
     @total_price
   end
 end
+
