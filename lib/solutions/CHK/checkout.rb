@@ -31,16 +31,20 @@ class Checkout
   attr_reader :shop_items, :discounts
 
   def checkout(skus)
-    set_prices
-    basket =
-    set_up
+    set_up_shop
     return -1 unless check_valid(skus)
 
-    sort_basket(skus)
-    add_up_basket
+    # sort_basket(skus)
+    # add_up_basket
   end
 
-  def set_prices
+  def set_up_shop
+    set_up_prices
+    set_up_discounts
+    set_up_freebies
+  end
+
+  def set_up_prices
     @shop_items = []
     @shop_items << new Item('A',50)
     @shop_items << new Item('B',30)
@@ -48,7 +52,7 @@ class Checkout
     @shop_items << new Item('D',15)
     @shop_items << new Item('E',40)
   end
-  def set_discounts
+  def set_up_discounts
     @discounts = []
     # KM Duplication - must remove
     a = new Item('A',50)
@@ -58,14 +62,8 @@ class Checkout
     @discounts << new Discount(b,2,45)
   end
 
-  def set_up
-
-    @discounts = { 'A' => [[5, 200],[3, 130]],
-                        'B' => [[2, 45]]}
-    @freebies = {'E' => [2,'B'] }
-
-    @total_price = 0
-    @sorted_basket = []
+  def set_up_freebies
+    # @freebies = {'E' => [2,'B'] }
   end
 
   def check_valid(basket)
@@ -188,6 +186,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
