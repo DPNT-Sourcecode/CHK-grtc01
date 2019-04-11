@@ -70,18 +70,59 @@ class Checkout
 
   def set_up_prices
     @shop_items = []
-    a = Item.new('A',50)
-    b = Item.new('B',30)
-    c = Item.new('C',20)
-    d = Item.new('D',15)
-    e = Item.new('E',40)
-    f = Item.new('F',10)
-    @shop_items << a
-    @shop_items << b
-    @shop_items << c
-    @shop_items << d
-    @shop_items << e
+    f = Item.new('A',50)
     @shop_items << f
+    f = Item.new('B',30)
+    @shop_items << f
+    f = Item.new('C',20)
+    @shop_items << f
+    f = Item.new('D',15)
+    @shop_items << f
+    f = Item.new('E',40)
+    @shop_items << f
+    f = Item.new('F',10)
+    @shop_items << f
+    f = Item.new('G',20)
+    @shop_items << f
+    f = Item.new('H',10)
+    @shop_items << f
+    f = Item.new('I',35)
+    @shop_items << f
+    f = Item.new('J',60)
+    @shop_items << f
+    f = Item.new('K',80)
+    @shop_items << f
+    f = Item.new('L',90)
+    @shop_items << f
+    f = Item.new('M',15)
+    @shop_items << f
+    f = Item.new('N',40)
+    @shop_items << f
+    f = Item.new('O',10)
+    @shop_items << f
+    f = Item.new('P',50)
+    @shop_items << f
+    f = Item.new('Q',30)
+    @shop_items << f
+    f = Item.new('R',50)
+    @shop_items << f
+    f = Item.new('S',30)
+    @shop_items << f
+    f = Item.new('T',20)
+    @shop_items << f
+    f = Item.new('U',40)
+    @shop_items << f
+    f = Item.new('V',50)
+    @shop_items << f
+    f = Item.new('W',20)
+    @shop_items << f
+    f = Item.new('X',90)
+    @shop_items << f
+    f = Item.new('Y',10)
+    @shop_items << f
+    f = Item.new('Z',50)
+    @shop_items << f
+
   end
 
   def set_up_discounts
@@ -197,3 +238,4 @@ class Checkout
     @total_price
   end
 end
+
