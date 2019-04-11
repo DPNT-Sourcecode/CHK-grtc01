@@ -28,7 +28,7 @@ class Basket
 end
 
 class Checkout
-  attr_reader :items
+  attr_reader :shop_items, :discounts
 
   def checkout(skus)
     set_prices
@@ -38,6 +38,22 @@ class Checkout
 
     sort_basket(skus)
     add_up_basket
+  end
+
+  def set_prices
+    @shop_items = []
+    @shop_items << new Item('A',50)
+    @shop_items << new Item('B',30)
+    @shop_items << new Item('C',20)
+    @shop_items << new Item('D',15)
+    @shop_items << new Item('E',40)
+  end
+  def set_discounts
+    @discounts = []
+    @discounts << new Item('A',50)
+    @discounts << new Item('B',30)
+    @discounts << new Item('C',20)
+
   end
 
   def set_up
@@ -170,5 +186,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
