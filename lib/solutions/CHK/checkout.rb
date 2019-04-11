@@ -136,8 +136,11 @@ class Checkout
 
   def check_discounts
     specials = []
-    print 'In check discounts '
+    p 'In check discounts '
+    p @sorted_basket
+    p
     p @discounts
+    p
     @sorted_basket.each do |basket_item|
       @discounts.each do |discount|
         if basket_item.name == discount.name &&
@@ -250,4 +253,5 @@ class Checkout
     p @total_price
   end
 end
+
 
