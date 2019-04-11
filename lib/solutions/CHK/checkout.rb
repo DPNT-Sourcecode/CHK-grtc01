@@ -48,10 +48,15 @@ class Checkout
 
   def set_up_prices
     @shop_items = []
-    @shop_items << new Item('A',50)
-    @shop_items << new Item('B',30)
-    @shop_items << new Item('C',20)
-    @shop_items << new Item('D',15)
+    a = new Item('A',50)
+    b = new Item('B',30)
+    c = new Item('C',20)
+    b =
+    @shop_items << a
+    @shop_items << b
+    @shop_items << c
+    @shop_items <<
+    new Item('D',15)
     @shop_items << new Item('E',40)
   end
   def set_up_discounts
@@ -184,9 +189,3 @@ class Checkout
   #   @total_price
   # end
 end
-
-
-
-
-
-
