@@ -139,6 +139,8 @@ class Checkout
     @discounts << d
     d = Discount.new('K',2,150)
     @discounts << d
+    d = Discount.new('P',5,200)
+    @discounts << d
   end
 
   def set_up_freebies
@@ -244,6 +246,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
