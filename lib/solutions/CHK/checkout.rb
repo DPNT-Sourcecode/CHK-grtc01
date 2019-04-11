@@ -30,10 +30,10 @@ class Discount
 end
 
 class Freebie
-  attr_reader :item, :qualifying_qty, :free_item
-  def initialize(item, qty, free_item)
-    @item = item
-    @qualifying_qty = qty
+  attr_reader :name, :qty, :free_item
+  def initialize(name, qty, free_item)
+    @name = name
+    @qty = qty
     @free_item = free_item
   end
 end
@@ -152,6 +152,20 @@ class Checkout
     @sorted_basket += specials
   end
 
+  def check_freebies
+    @sorted_basket.each do |basket_item|
+      @freebies.each do |freebie|
+        if basket_item.name == freebie.name &&
+          basket_item.qty >= freebie.qty
+          p 'FREEBIE'
+          p basket_item
+          p freebie
+          # Need to find the freebie
+        end
+      end
+    end
+  end
+
   def add_up_basket
     @total_price = 0
     @sorted_basket.each do |basket_item|
@@ -160,6 +174,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
