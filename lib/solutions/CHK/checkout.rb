@@ -8,19 +8,19 @@ class Item
 end
 
 class BasketItem < Item
-  attr_reader :quantity
+  attr_reader :qty
   def initialize(name, price, qty)
     @name = name
     @price = price
-    @quantity = qty
+    @qty = qty
   end
 end
 
 class Discount
-  attr_reader :item, :qualifying_qty, :new_price
+  attr_reader :name, :qty, :new_price
   def initialize(name, qty, price)
-    @name = item
-    @qualifying_qty = qty
+    @name = name
+    @qty = qty
     @new_price = price
   end
 end
@@ -79,8 +79,8 @@ class Checkout
 
   def set_up_discounts
     @discounts = []
-    d1 = Discount.new('A',3,130)
-    d2 = Discount.new('A',5,200)
+    d1 = Discount.new('A',5,200)
+    d2 = Discount.new('A',3,130)
     d3 = Discount.new('B',2,45)
     @discounts << d1
     @discounts << d2
@@ -135,13 +135,15 @@ class Checkout
     p @discounts
     @sorted_basket.each do |basket_item|
       @discounts.each do |discount|
-        if basket_item.name == discount.name
+        if basket_item.name == discount.name &&
+          basket_item.qty >= discount.qty
           p' Discount City'
         end
       end
       p basket_item
     end
   end
+  
   #
   # def check_specials
   #   check_freebies
@@ -236,6 +238,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
