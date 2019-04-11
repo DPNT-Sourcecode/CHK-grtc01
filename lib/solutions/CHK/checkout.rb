@@ -185,8 +185,7 @@ class Checkout
       p basket_item
       if basket_item.name == item && basket_item.qty >= max_qty
         new_qty = 0
-        if new_qty = basket_item.qty - max_qty
-        elsif basket_item.qty > qty
+        if basket_item.qty <= qty
            new_qty = qty - basket_item.qty
         elsif basket_item.qty > qty
            new_qty = basket_item.qty - qty
@@ -204,4 +203,5 @@ class Checkout
     @total_price
   end
 end
+
 
