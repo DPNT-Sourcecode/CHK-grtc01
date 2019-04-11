@@ -43,7 +43,7 @@ class Checkout
     set_up_shop
     return -1 unless check_valid(skus)
 
-    # sort_basket(skus)
+    sort_basket(skus)
     # add_up_basket
   end
 
@@ -98,21 +98,21 @@ class Checkout
   def check_item_valid(item)
     p item
   end
-  # def sort_basket(basket)
-  #   basic_items(basket)
-  #   check_specials
-  # end
-  #
-  # def basic_items(basket)
-  #   @item_prices.each do |item, price|
-  #     item_array = []
-  #     item_array[QTY] = basket.chars.count(item)
-  #     if item_array[QTY] > 0
-  #       item_array[ITEM] = item
-  #       @sorted_basket << item_array
-  #     end
-  #   end
-  # end
+  def sort_basket(basket)
+    basic_items(basket)
+    # check_specials
+  end
+
+  def basic_items(basket)
+    @item_prices.each do |item, price|
+      item_array = []
+      item_array[QTY] = basket.chars.count(item)
+      if item_array[QTY] > 0
+        item_array[ITEM] = item
+        @sorted_basket << item_array
+      end
+    end
+  end
   #
   # def check_specials
   #   check_freebies
@@ -206,6 +206,7 @@ class Checkout
   #   @total_price
   # end
 end
+
 
 
 
