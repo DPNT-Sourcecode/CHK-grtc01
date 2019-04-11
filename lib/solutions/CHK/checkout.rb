@@ -130,6 +130,13 @@ class Checkout
     add_up_basket
   end
 
+  def check_discounts
+    print 'In check discounts '
+    p @discounts
+    @sorted_basket.each do |basket_item|
+      p basket_item
+    end
+  end
   #
   # def check_specials
   #   check_freebies
@@ -224,5 +231,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
