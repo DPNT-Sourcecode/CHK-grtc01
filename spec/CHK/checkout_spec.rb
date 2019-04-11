@@ -161,6 +161,9 @@ describe Checkout do
  it 'App should return 120 if NNNM are in the basket' do
    expect(subject.checkout('NNNM')).to eq(120)
  end
+ it 'App should return 150 if RRRQ are in the basket' do
+   expect(subject.checkout('RRRQ')).to eq(150)
+ end
 
  ## Mixed Basket
  it 'App should return 80 if AB are in the basket' do
@@ -178,6 +181,7 @@ describe Checkout do
 
 
 end
+
 
 
 
