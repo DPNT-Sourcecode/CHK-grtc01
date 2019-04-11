@@ -212,14 +212,14 @@ class Checkout
   # end
   #
   def add_up_basket
-    x = 0
-    while x < @sorted_basket.length
-      @total_price += @sorted_basket[x][QTY] * @sorted_basket[x][PRICE]
-      x += 1
+    @total_price = 0
+    @sorted_basket.each do |basket_item|
+      @total_price += basket_item.quantity * basket_item.price
     end
     @total_price
   end
 end
+
 
 
 
