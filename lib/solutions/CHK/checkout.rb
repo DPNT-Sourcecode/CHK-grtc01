@@ -160,10 +160,18 @@ class Checkout
           p 'FREEBIE'
           p basket_item
           p freebie
+          no_freebies = basket_item.qty / freebie.qty
           # Need to find the freebie
+          make_freebie_free(freebie.free_item,no_freebies )
         end
       end
     end
+  end
+
+  def make_freebie_free(item, qty)
+    p 'In make_freebie_free'
+    p item
+    p qty
   end
 
   def add_up_basket
@@ -174,7 +182,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
