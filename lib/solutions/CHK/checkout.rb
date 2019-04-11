@@ -30,13 +30,12 @@ class Discount
 end
 
 class Freebie
-  attr_reader :name, :qty, :free_item, :min_qty, :max_qty
-  def initialize(name, qty, free_item, min_qty = qty, max_qty = qty)
+  attr_reader :name, :qty, :free_item, :min_qty
+  def initialize(name, qty, free_item, min_qty = qty)
     @name = name
     @qty = qty
     @free_item = free_item
     @min_qty = min_qty
-    @max_qty = max_qty
   end
 end
 
@@ -99,7 +98,7 @@ class Checkout
     @freebies = []
     f1 = Freebie.new('E',2,'B')
     @freebies << f1
-    f2 = Freebie.new('F',3,'F',1,1)
+    f2 = Freebie.new('F',3,'F',1)
     @freebies << f2
   end
 
@@ -165,7 +164,7 @@ class Checkout
           eligable(basket_item.qty,freebie.qty,freebie.min_qty)
           no_freebies = basket_item.qty / freebie.qty
           # Need to find the freebie
-          make_freebie_free(freebie.free_item,no_freebies,freebie.max_qty)
+          make_freebie_free(freebie.free_item,no_freebies)
         end
       end
     end
@@ -176,14 +175,9 @@ class Checkout
       basket_qty >= min_qty
   end
 
-  def make_freebie_free(item, qty, max_qty)
-    p @freebies
+  def make_freebie_free(item, qty)
     @sorted_basket.each do |basket_item|
-      p item
-      p qty
-      p max_qty
-      p basket_item
-      if basket_item.name == item && basket_item.qty >= max_qty
+      if basket_item.name == item
         new_qty = 0
         if basket_item.qty <= qty
            new_qty = qty - basket_item.qty
@@ -203,5 +197,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
