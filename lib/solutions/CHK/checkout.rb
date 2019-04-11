@@ -30,8 +30,8 @@ class Discount
 end
 
 class Freebie
-  attr_reader :name, :qty, :free_item, :min_qty
-  def initialize(name, qty, free_item, min_qty = qty)
+  attr_reader :name, :qty, :free_item, :min_qty, :max_qty
+  def initialize(name, qty, free_item, min_qty = qty, ::max_qty = qty)
     @name = name
     @qty = qty
     @free_item = free_item
@@ -98,7 +98,7 @@ class Checkout
     @freebies = []
     f1 = Freebie.new('E',2,'B')
     @freebies << f1
-    f2 = Freebie.new('F',2,'F',3)
+    f2 = Freebie.new('F',2,'F',3,1)
     @freebies << f2
   end
 
@@ -197,5 +197,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
