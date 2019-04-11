@@ -159,6 +159,8 @@ class Checkout
     @freebies << f
     f = Freebie.new('R',3,'Q',1)
     @freebies << f
+    f = Freebie.new('U',3,'U',1)
+    @freebies << f
   end
 
   def check_valid(basket)
@@ -256,5 +258,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
