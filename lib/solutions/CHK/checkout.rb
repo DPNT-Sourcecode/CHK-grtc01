@@ -148,9 +148,16 @@ class Checkout
           p' Discount City'
           offer_qty = basket_item.qty / discount.qty
           special_offer_item = BasketItem.new(basket_item.name,discount.price,offer_qty)
+          print 'Adding .....'
+          p special_offer_item
           specials << special_offer_item
+          specials = []
           remainder = basket_item.qty % discount.qty
+          print 'Updating ....'
+          p basket_item
           basket_item.update_quantity(remainder)
+          print 'Updated ....'
+          p basket_item
         end
         p specials
       end
@@ -254,6 +261,7 @@ class Checkout
     p @total_price
   end
 end
+
 
 
 
