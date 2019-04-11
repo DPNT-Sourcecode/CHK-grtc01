@@ -18,11 +18,11 @@ class BasketItem < Item
 end
 
 class Discount
-  attr_reader :name, :qty, :new_price
+  attr_reader :name, :qty, :price
   def initialize(name, qty, price)
     @name = name
     @qty = qty
-    @new_price = price
+    @price = price
   end
 end
 
@@ -144,7 +144,7 @@ class Checkout
           special_offer_item = BasketItem.new(basket_item.name,discount.price,offer_qty)
           specials << special_offer_item
           remainder = basket_item.qty / discount.qty
-          basket_item.qty = remainder      
+          basket_item.qty = remainder
         end
       end
       @sorted_basket += specials
@@ -246,6 +246,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
