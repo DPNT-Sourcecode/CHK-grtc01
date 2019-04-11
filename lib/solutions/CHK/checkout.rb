@@ -136,41 +136,19 @@ class Checkout
 
   def check_discounts
     specials = []
-    p 'In check discounts '
-    p @sorted_basket
-    p
-    p @discounts
-    p
     @sorted_basket.each do |basket_item|
       @discounts.each do |discount|
-
         if basket_item.name == discount.name &&
           basket_item.qty >= discount.qty
-          p' Discount City'
-
           offer_qty = basket_item.qty / discount.qty
           remainder = basket_item.qty % discount.qty
-          p offer_qty
-          p remainder
-
           special_offer_item = BasketItem.new(basket_item.name,discount.price,offer_qty)
-
-          print 'Adding .....'
-          p special_offer_item
           specials << special_offer_item
-          print 'Updating ....'
-          p basket_item
           basket_item.update_quantity(remainder)
-          print 'Updated ....'
-          p basket_item
         end
-        print 'Specials...'
-        p specials
-        print 'Basket now looks like is ...'
-        p @sorted_basket
       end
-      @sorted_basket += specials
     end
+    @sorted_basket += specials
   end
 
   def add_up_basket
@@ -184,4 +162,5 @@ class Checkout
     p @total_price
   end
 end
+
 
