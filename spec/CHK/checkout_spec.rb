@@ -86,6 +86,11 @@ describe Checkout do
   # # | E    | 40    | 2E get one B free      |
   # # | F    | 10    | 2F get one F free      |
   # # +------+-------+------------------------+
+#   INFO  AuditStream : id = CHK_R3_039, req = checkout("FF"), resp = 10
+# INFO  AuditStream : id = CHK_R3_040, req = checkout("FFF"), resp = 20
+# INFO  AuditStream : id = CHK_R3_041, req = checkout("FFFF"), resp = 20
+# INFO  AuditStream : id = CHK_R3_042, req = checkout("FFFFFF"), resp = 30
+# INFO  AuditStream : id = CHK_R3_043, req = checkout("FFFFFF"), resp = 30
   it 'App should return 10 if F are  in the basket' do
     expect(subject.checkout('F')).to eq(10)
   end
@@ -102,3 +107,4 @@ describe Checkout do
     expect(subject.checkout('FFFFFF')).to eq(40)
   end
 end
+

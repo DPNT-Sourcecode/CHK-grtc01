@@ -99,7 +99,7 @@ class Checkout
     @freebies = []
     f1 = Freebie.new('E',2,'B')
     @freebies << f1
-    f2 = Freebie.new('F',2,'F',3,1)
+    f2 = Freebie.new('F',3,'F',1,1)
     @freebies << f2
   end
 
@@ -183,10 +183,9 @@ class Checkout
       p qty
       p max_qty
       p basket_item
-      if basket_item.name == item
+      if basket_item.name == item && basket_item.qty >= max_qty
         new_qty = 0
-        if basket_item.qty >= max_qty
-           new_qty = basket_item.qty - max_qty
+        if new_qty = basket_item.qty - max_qty
         elsif basket_item.qty > qty
            new_qty = qty - basket_item.qty
         elsif basket_item.qty > qty
@@ -205,3 +204,4 @@ class Checkout
     @total_price
   end
 end
+
