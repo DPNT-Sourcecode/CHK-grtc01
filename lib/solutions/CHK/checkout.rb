@@ -98,19 +98,16 @@ class Checkout
   def check_item_valid(item)
     p item
   end
-  def sort_basket(basket)
-    basic_items(basket)
-    # check_specials
-  end
 
-  def basic_items(basket)
-    @item_prices.each do |item, price|
-      item_array = []
-      item_array[QTY] = basket.chars.count(item)
-      if item_array[QTY] > 0
-        item_array[ITEM] = item
+  def sort_basket(basket)
+    @shop_items.each do |item, price|
+      if basket.chars.count(item) > 0
+        item_array = []
+        item_array[0] = item
+        item_array[1] = basket.chars.count(item)
         @sorted_basket << item_array
       end
+      p @sorted_basket
     end
   end
   #
@@ -206,6 +203,7 @@ class Checkout
   #   @total_price
   # end
 end
+
 
 
 
