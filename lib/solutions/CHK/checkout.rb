@@ -157,7 +157,11 @@ class Checkout
           special_offer_item.update_quantity(0)
           print 'Updating ....'
           p basket_item
-          basket_item.update_quantity(remainder)
+          if remainder == 0
+            basket_item.delete
+          else
+            basket_item.update_quantity(remainder)
+          end
           print 'Updated ....'
           p basket_item
         end
@@ -179,6 +183,7 @@ class Checkout
     p @total_price
   end
 end
+
 
 
 
