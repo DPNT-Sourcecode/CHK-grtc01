@@ -97,8 +97,12 @@ describe Checkout do
   end
   it 'App should return 30 if FFFF are  in the basket' do
     expect(subject.checkout('FFFF')).to eq(30)
-  # end
+  end
+  it 'App should return 30 if FFFFFF are  in the basket' do
+    expect(subject.checkout('FFFFFF')).to eq(40)
+  end
 end
+
 
 
 

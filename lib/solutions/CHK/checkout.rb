@@ -184,7 +184,7 @@ class Checkout
         elsif basket_item.qty > qty
            new_qty = qty - basket_item.qty
         elsif new_qty > max_qty
-           new_qty = max_qty
+           new_qty = basket_item.qty - max_qty
         end
         basket_item.update_quantity(new_qty)
       end
@@ -199,6 +199,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
