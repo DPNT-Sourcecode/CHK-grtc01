@@ -7,6 +7,10 @@ class Item
   end
 end
 
+class BasketItem << Item
+  attr_reader :quantity
+end
+
 class Discount
   attr_reader :item, :qualifying_qty, :new_price
   def initialize(item, qty, price)
@@ -103,7 +107,9 @@ class Checkout
     found
   end
 
+  # KM Not happy about this looping unnecessarily - revisit
   def sort_basket(basket)
+    @sorted_basket = []
     @shop_items.each do |shop_item|
       p shop_item
       if basket.chars.count(shop_item.name) > 0
@@ -111,6 +117,7 @@ class Checkout
         item_array = []
         item_array[0] = shop_item.name
         item_array[1] = basket.chars.count(shop_item.name)
+        item_array[0] = shop_item.name
         p item_array
         @sorted_basket << item_array
       end
@@ -211,5 +218,6 @@ class Checkout
   #   @total_price
   # end
 end
+
 
 
