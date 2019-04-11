@@ -159,7 +159,7 @@ class Checkout
     @freebies << f
     f = Freebie.new('R',3,'Q',1)
     @freebies << f
-    f = Freebie.new('U',3,'U',1)
+    f = Freebie.new('U',4,'U',1)
     @freebies << f
   end
 
@@ -258,6 +258,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
