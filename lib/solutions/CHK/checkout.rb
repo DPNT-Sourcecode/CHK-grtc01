@@ -39,6 +39,15 @@ class Freebie
   end
 end
 
+class Group
+  attr_reader :item_list, :qty, :price
+  def initialize(item_list, qty, price)
+    @item_list = item_list
+    @qty = qty
+    @price = price
+  end
+end
+
 class Basket
   attr_reader :items, :total
   def initialize()
@@ -66,6 +75,7 @@ class Checkout
     set_up_prices
     set_up_discounts
     set_up_freebies
+    set_up_groups
   end
 
   def set_up_prices
@@ -163,6 +173,10 @@ class Checkout
     @freebies << f
   end
 
+  def set_up_groups
+    g = Group.new([S,T,X,Y,Z],3,45)
+    @groups << g
+  end
   def check_valid(basket)
     basket_valid = true
     x = 0
@@ -258,3 +272,4 @@ class Checkout
     @total_price
   end
 end
+
