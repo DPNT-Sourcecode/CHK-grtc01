@@ -1,6 +1,6 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
-  attr_reader :item_prices, :special_offers, :total_price, :sorted_basket
+  attr_reader :item_prices, :discounts, :freebies, :total_price, :sorted_basket
   ITEM = 2
   ITEM.freeze
   PRICE = 1
@@ -24,9 +24,10 @@ class Checkout
 
   def set_up
     @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, 'E' => 40 }
-    @special_offers = { 'A' => [[5, 200],[3, 130]],
-                        'B' => [[2, 45]],
-                        'E' => [2,FREEBIE_CODE,'B'] }
+    @discounts = { 'A' => [[5, 200],[3, 130]],
+                        'B' => [[2, 45]]}
+    @freebies = {'E' => [2,FREEBIE_CODE,'B'] }
+
     @total_price = 0
     @sorted_basket = []
   end
@@ -61,21 +62,26 @@ class Checkout
   end
 
   def check_specials
+    check_freebies
+    check_discounts
+  end
+  
+  def check_discounts
     x = 0
     @sorted_basket.length
     while x < @sorted_basket.length &&
       @sorted_basket[x][ITEM] != 'SO'
       print 'in check specials, checking '
       p @sorted_basket[x]
-      if @special_offers.include?(@sorted_basket[x][ITEM])
-        calc_all_special_offers(x)
+      if @.include?(@sorted_basket[x][ITEM])
+        calc_all_(x)
       end
       x += 1
     end
   end
 
 # By now I should have an item and a list of special offers
-  def calc_all_special_offers(num)
+  def calc_all_(num)
     check_freebies(num)
     calc_discounts(num)
   end
@@ -91,7 +97,7 @@ class Checkout
     item = @sorted_basket[num][ITEM]
     print 'Item is '
     p item
-    offers_list = @special_offers[item]
+    offers_list = @discounts[item]
     p offers_list
     x = 0
     while x < offers_list.length
@@ -128,3 +134,4 @@ class Checkout
     @total_price
   end
 end
+
