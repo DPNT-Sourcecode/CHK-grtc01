@@ -93,7 +93,13 @@ class Checkout
     p @sorted_basket[num]
     item = @sorted_basket[num][ITEM]
     p @freebies[item]
-    
+    if @freebies[item][QTY] >= @sorted_basket[num][QTY]
+      check_freebie_in_basket(@freebies[item][FREEBIE])
+    end
+  end
+
+  def check_freebie_in_basket(freebie)
+    true
   end
 
   def calc_discounts(num)
@@ -129,6 +135,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
