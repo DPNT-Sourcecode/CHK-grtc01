@@ -65,7 +65,21 @@ class Checkout
     check_freebies
     check_discounts
   end
-  
+
+  def check_frieebies
+    x = 0
+    @sorted_basket.length
+    while x < @sorted_basket.length &&
+      @sorted_basket[x][ITEM] != 'SO'
+      print 'in check specials, checking '
+      p @sorted_basket[x]
+      if @.include?(@sorted_basket[x][ITEM])
+        calc_all_(x)
+      end
+      x += 1
+    end
+  end
+
   def check_discounts
     x = 0
     @sorted_basket.length
@@ -134,4 +148,5 @@ class Checkout
     @total_price
   end
 end
+
 
