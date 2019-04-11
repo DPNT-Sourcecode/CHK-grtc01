@@ -174,8 +174,8 @@ class Checkout
   end
 
   def set_up_groups
+    @groups = []
     group_list = ['S','T','X','Y','Z']
-    
     g = Group.new(group_list,3,45)
     @groups << g
   end
@@ -213,6 +213,7 @@ class Checkout
   end
 
   def calculate_total
+    check_groups
     check_freebies
     check_discounts
     add_up_basket
@@ -275,6 +276,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
