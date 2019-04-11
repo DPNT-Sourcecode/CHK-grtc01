@@ -127,12 +127,14 @@ class Checkout
 
   def set_up_discounts
     @discounts = []
-    d1 = Discount.new('A',5,200)
-    d2 = Discount.new('A',3,130)
-    d3 = Discount.new('B',2,45)
-    @discounts << d1
-    @discounts << d2
-    @discounts << d3
+    d = Discount.new('A',5,200)
+    @discounts << d
+    d = Discount.new('A',3,130)
+    @discounts << d
+    d = Discount.new('B',2,45)
+    @discounts << d
+    d = Discount.new('H',5,45)
+    @discounts << d
   end
 
   def set_up_freebies
@@ -238,4 +240,5 @@ class Checkout
     @total_price
   end
 end
+
 
