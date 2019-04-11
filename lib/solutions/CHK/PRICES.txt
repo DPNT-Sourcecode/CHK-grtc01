@@ -24,6 +24,3 @@ f = Item.new('W',20)  @shop_items << f
 f = Item.new('X',90)  @shop_items << f
 f = Item.new('Y',10)  @shop_items << f
 f = Item.new('Z',50)  @shop_items << f
-
-
-
