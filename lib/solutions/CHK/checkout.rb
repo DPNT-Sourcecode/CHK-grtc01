@@ -105,18 +105,10 @@ class Checkout
   end
 
   def check_freebie_in_basket(freebie)
-    print '     check_freebie_in_basket , freebie is ...'
-    p freebie
-    print '      basket '
-    p @sorted_basket
     x = 0
     while x < @sorted_basket.length
-      print ' This doesnt work.... Meh '
-      p @sorted_basket[x]
-      print ' Does it have '
-      p freebie[FREEBIE]
-     if @sorted_basket[x].include?(freebie[FREEBIE])
-       ' Yay have freebie'
+     if @sorted_basket[x].include?(freebie)
+       p ' Yay have freebie'
        return true
     end
     x += 1
@@ -156,6 +148,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
