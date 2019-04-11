@@ -95,6 +95,7 @@ class Checkout
     p @freebies[item]
     if @freebies[item][QTY] >= @sorted_basket[num][QTY] &&
       check_freebie_in_basket(@freebies[item][FREEBIE])
+        freebie_offer = []
         freebie_offer[ITEM] = @freebies[item][FREEBIE]
         freebie_offer[PRICE] = 0
         freebie_offer[QTY] = 1 # KM
@@ -139,11 +140,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
-
-
-
-
