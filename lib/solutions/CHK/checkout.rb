@@ -100,7 +100,7 @@ class Checkout
         freebie_offer[ITEM] = @freebies[item][FREEBIE]
         freebie_offer[PRICE] = 0
         freebie_offer[QTY] = -@freebies[item][QTY]
-        update_basket(num, freebie_offer )
+        update_basket_with_freebie(num, freebie_offer )
     end
   end
 
@@ -151,4 +151,5 @@ class Checkout
     @total_price
   end
 end
+
 
