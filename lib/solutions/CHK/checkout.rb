@@ -128,6 +128,8 @@ class Checkout
   end
 
   def update_basket(num, special_offer)
+    print '     In update_basket '
+    p special_offer
     qty = @sorted_basket[num][QTY]
     offer_item = []
     x = qty / special_offer[QTY]
@@ -137,6 +139,7 @@ class Checkout
     offer_item[QTY] = x
     @sorted_basket << offer_item
     @sorted_basket[num][QTY] = y
+    p @sorted_basket
   end
 
   def add_up_basket
@@ -148,8 +151,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
-
