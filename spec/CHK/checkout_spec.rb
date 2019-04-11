@@ -92,13 +92,14 @@ describe Checkout do
   it 'App should return 20 if FF are  in the basket' do
     expect(subject.checkout('FF')).to eq(20)
   end
-  # it 'App should return 20 if FFF are  in the basket' do
-  #   expect(subject.checkout('FFF')).to eq(20)
-  # end
-  # it 'App should return 20 if FFFF are  in the basket' do
-  #   expect(subject.checkout('FFFF')).to eq(20)
+  it 'App should return 20 if FFF are  in the basket' do
+    expect(subject.checkout('FFF')).to eq(20)
+  end
+  it 'App should return 30 if FFFF are  in the basket' do
+    expect(subject.checkout('FFFF')).to eq(30)
   # end
 end
+
 
 
 
