@@ -57,4 +57,3 @@ describe Checkout do
   #   expect(subject.checkout('EEB')).to eq(80)
   # end
 end
-

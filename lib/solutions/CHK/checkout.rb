@@ -96,8 +96,12 @@ class Checkout
   end
 
   def check_item_valid(item)
-
-    p item
+    found = false
+    @shop_items.each do |shop_item|
+     if item == shop_item.name
+       found = true
+     end
+    end
   end
 
   def sort_basket(basket)
@@ -204,11 +208,3 @@ class Checkout
   #   @total_price
   # end
 end
-
-
-
-
-
-
-
-
