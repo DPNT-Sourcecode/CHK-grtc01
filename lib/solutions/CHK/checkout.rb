@@ -36,6 +36,7 @@ class Freebie
     @qty = qty
     @free_item = free_item
     @min_qty = min_qty
+    @max_qty = max_qty
   end
 end
 
@@ -204,6 +205,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
