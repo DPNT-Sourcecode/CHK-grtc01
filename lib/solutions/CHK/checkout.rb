@@ -2,9 +2,6 @@
 class Item
   attr_reader :name, :price
 
-  def initialize
-  end
-
   def initialize(name, price)
     @name = name
     @price = price
@@ -135,6 +132,7 @@ class Checkout
   end
 
   def check_discounts
+    specials = []
     print 'In check discounts '
     p @discounts
     @sorted_basket.each do |basket_item|
@@ -143,9 +141,13 @@ class Checkout
           basket_item.qty >= discount.qty
           p' Discount City'
           offer_qty = basket_item.qty / discount.qty
-          special_offer_item = Item.new(basket_item.name)
+          special_offer_item = BasketItem.new(basket_item.name,discount.price,offer_qty)
+          specials << special_offer_item
+          remainder = basket_item.qty / discount.qty
+          basket_item.qty = remainder      
         end
       end
+      @sorted_basket += specials
       p basket_item
     end
   end
@@ -244,6 +246,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
