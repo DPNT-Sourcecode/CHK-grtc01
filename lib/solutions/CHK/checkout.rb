@@ -219,6 +219,16 @@ class Checkout
     add_up_basket
   end
 
+  def check_groups
+    @groups.each do |item_list, qty, price|
+      qualifying_counter = 0
+      @sorted_basket.each do |basket_item|
+        if item_list.include?(basket_item.name)
+          p 'In group'
+        end
+      end
+    end
+  end
   def check_discounts
     specials = []
     @sorted_basket.each do |basket_item|
@@ -276,6 +286,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
