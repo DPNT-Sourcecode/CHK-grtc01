@@ -119,7 +119,69 @@ describe Checkout do
   # | Y    | 10    |                        |
   # | Z    | 50    |                        |
   # +------+-------+------------------------+
+  it 'App should return 10 if G are  in the basket' do
+    expect(subject.checkout('G')).to eq(10)
+  end
+  it 'App should return 10 if H  are  in the basket' do
+    expect(subject.checkout('H')).to eq(10)
+  end
+  it 'App should return 10 if I  are  in the basket' do
+    expect(subject.checkout('I')).to eq(10)
+  end
+  it 'App should return 10 if J are  in the basket' do
+    expect(subject.checkout('J')).to eq(10)
+  end
+  it 'App should return 10 if K are  in the basket' do
+    expect(subject.checkout('K')).to eq(10)
+  end
+  it 'App should return 10 if L are  in the basket' do
+    expect(subject.checkout('L')).to eq(10)
+  end
+  it 'App should return 10 if M are  in the basket' do
+    expect(subject.checkout('M')).to eq(10)
+  end
+  it 'App should return 10 if N are  in the basket' do
+    expect(subject.checkout('N')).to eq(10)
+  end
+
+  it 'App should return 10 if O are  in the basket' do
+    expect(subject.checkout('O')).to eq(10)
+  end
+  it 'App should return 10 if P are  in the basket' do
+    expect(subject.checkout('P')).to eq(10)
+  end
+  it 'App should return 10 if Q are  in the basket' do
+    expect(subject.checkout('Q')).to eq(10)
+  end
+  it 'App should return 10 if R are  in the basket' do
+    expect(subject.checkout('R')).to eq(10)
+  end
+  it 'App should return 10 if S are  in the basket' do
+    expect(subject.checkout('S')).to eq(10)
+  end
+  it 'App should return 10 if T are  in the basket' do
+    expect(subject.checkout('T')).to eq(10)
+  end
+  it 'App should return 10 if U are  in the basket' do
+    expect(subject.checkout('U')).to eq(10)
+  end
+  it 'App should return 10 if V are  in the basket' do
+    expect(subject.checkout('V')).to eq(10)
+  end
+  it 'App should return 10 if W are  in the basket' do
+    expect(subject.checkout('W')).to eq(10)
+  end
+  it 'App should return 10 if X are  in the basket' do
+    expect(subject.checkout('X')).to eq(10)
+  end
+  it 'App should return 10 if Y are  in the basket' do
+    expect(subject.checkout('Y')).to eq(10)
+  end
+  it 'App should return 10 if Z are  in the basket' do
+    expect(subject.checkout('Z')).to eq(10)
+  end
 end
+
 
 
 
