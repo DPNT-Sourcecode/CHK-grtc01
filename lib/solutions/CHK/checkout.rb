@@ -18,25 +18,21 @@ end
 
 class Basket
   attr_reader :items, :total
-  def initialize(items)
-    @items = items
+  def initialize()
+    @items = []
     @total = 0
   end
+  def fill_basket(items)
+    @items = items
+  end
 end
+
 class Checkout
-  attr_reader :item_prices, :discounts, :freebies, :total_price, :sorted_basket
-  ITEM = 2
-  ITEM.freeze
-  PRICE = 1
-  PRICE.freeze
-  QTY = 0
-  QTY.freeze
-  FREEBIE = 1
-  FREEBIE.freeze
-  SPECIAL_OFFER_CODE = 'SO'
-  SPECIAL_OFFER_CODE.freeze
+  attr_reader :items
 
   def checkout(skus)
+    set_prices
+    basket =
     set_up
     return -1 unless check_valid(skus)
 
@@ -45,7 +41,7 @@ class Checkout
   end
 
   def set_up
-    @item_prices = { 'A' => 50, 'B' => 30, 'C' => 20, 'D' => 15, 'E' => 40 }
+
     @discounts = { 'A' => [[5, 200],[3, 130]],
                         'B' => [[2, 45]]}
     @freebies = {'E' => [2,'B'] }
@@ -77,7 +73,6 @@ class Checkout
       item_array[QTY] = basket.chars.count(item)
       if item_array[QTY] > 0
         item_array[ITEM] = item
-        item_array[PRICE] = price
         @sorted_basket << item_array
       end
     end
@@ -175,4 +170,5 @@ class Checkout
     @total_price
   end
 end
+
 
