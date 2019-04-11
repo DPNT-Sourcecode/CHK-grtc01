@@ -130,6 +130,8 @@ class Checkout
   end
 
   def calculate_total
+    print 'Basket after sort ...'
+    p @sorted_basket
     check_discounts
     check_freebies
     add_up_basket
@@ -188,3 +190,4 @@ class Checkout
     @total_price
   end
 end
+
