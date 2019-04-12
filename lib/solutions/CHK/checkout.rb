@@ -235,13 +235,16 @@ class Checkout
           p 'Have group!'
           group_basket << sorted_basket[x]
           sorted_basket.delete_at(x)
-          x += 1
+          # x += 1
           p group_basket
           p sorted_basket
+        else
+          x += 1
         end
+
       end
       if !check_if_group_valid(group_basket,group.qty)
-        sorted_basket << group_basket
+        @sorted_basket << group_basket
       end
     end
   end
@@ -312,6 +315,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
