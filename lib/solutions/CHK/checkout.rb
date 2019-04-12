@@ -221,6 +221,7 @@ class Checkout
 
   def check_groups
     group_basket = []
+    x = 0
     # loop through the groups...
     # loop through the basket
     # if the item is in the group
@@ -228,11 +229,11 @@ class Checkout
     # When the group/basket check is finished, assess the group_basket
     # If the basket doesn't qualify then its all put back and the next group checked
     @groups.each do |group|
-      @sorted_basket.each do |basket_item|
-        if group.item_list.include?(basket_item.name) &&
-          basket_item.qty > 0
-          group_basket << basket_item
-          basket_item.update_quantity(0)
+      while x < sorted_basket.length
+        if group.item_list.include?(sorted_basket[x].name)
+          p 'Have group!'
+          group_basket << sorted_basket[x]
+          sorted_basket.delete_at(x)
         end
         if !check_if_group_valid(group_basket,group.qty)
           sorted_basket << group_basket
@@ -307,4 +308,5 @@ class Checkout
     @total_price
   end
 end
+
 
