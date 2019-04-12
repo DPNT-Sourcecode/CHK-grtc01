@@ -185,6 +185,9 @@ describe Checkout do
   it 'App should return 45 if STX are in the basket' do
     expect(subject.checkout('STX')).to eq(45)
   end
+  it 'App should return 45+17 if STXS are in the basket' do
+    expect(subject.checkout('STXS')).to eq(63)
+  end
   # it 'App should return 45 if STY are in the basket' do
   #   expect(subject.checkout('STY')).to eq(45)
   # end
@@ -204,3 +207,4 @@ describe Checkout do
   #   expect(subject.checkout('XYZ')).to eq(45)
   # end
 end
+

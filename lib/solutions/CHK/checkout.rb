@@ -270,8 +270,8 @@ class Checkout
     p  group_basket.sort {|a,b,c| b.price <=> a.price }
     # Remove group.qty, make new group item and add anything else
     while count < group.qty
-      group_basket[count].update_quantity(group_basket[count].qty -= 1)
-      count =+ 1
+      group_basket[count].update_quantity(group_basket[count].qty - 1)
+      count += 1
     end
     basket_item = BasketItem.new('GROUP',group.price,1)
     @sorted_basket << basket_item
@@ -336,4 +336,5 @@ class Checkout
     @total_price
   end
 end
+
 
