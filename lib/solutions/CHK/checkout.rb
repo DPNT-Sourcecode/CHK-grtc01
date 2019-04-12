@@ -237,8 +237,22 @@ class Checkout
   end
 
   def update_basket_with_group_discount(group)
+    group_items = []
+    qualifying_counter = group.qty
     p 'Update Basket'
+    @sorted_basket.each do |basket_item|
+      if group.item_list.include?(basket_item.name)
+        group_items << basket_item
+        basket_item.update_quantity(basket_item.qty - 1)
+        qualifying_counter -= 1
+      end
+    end
+    if qualifying_counter <= 0
+      p 'We have a group'
+      p  group.price
+    end
   end
+
   def check_discounts
     specials = []
     @sorted_basket.each do |basket_item|
@@ -296,3 +310,4 @@ class Checkout
     @total_price
   end
 end
+
