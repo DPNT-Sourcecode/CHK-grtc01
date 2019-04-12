@@ -275,6 +275,7 @@ class Checkout
     end
     basket_item = BasketItem.new('GROUP',group.price,1)
     @sorted_basket << basket_item
+    @sorted_basket += group_basket
     p sorted_basket
 
   end
@@ -336,5 +337,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
