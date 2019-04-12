@@ -258,16 +258,12 @@ class Checkout
   end
 
   def update_group_basket(eligable_qty,group_basket)
-    p 'in update_group_basket'
     count = 0
     while eligable_qty > 0
       if group_basket[0].qty > eligable_qty
-        p 'Only some in the offer'
         group_basket[0].update_quantity(group_basket[0].qty-eligable_qty)
         eligable_qty = 0
       else
-        p 'all of these in the offer'
-        p group_basket[0].qty
         eligable_qty -= group_basket[0].qty
         group_basket.delete_at(0)
       end
@@ -285,7 +281,7 @@ class Checkout
     basket.each do |item|
       total_items += item.qty
     end
-    p total_items
+    total_items
   end
 
   def check_discounts
@@ -344,5 +340,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
