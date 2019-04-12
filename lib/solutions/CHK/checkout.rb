@@ -249,6 +249,7 @@ class Checkout
 
   def calc_group_discount(group_basket,group)
     count = 0
+
     # KM unclear user requirement - presumably the 3 most expensive
     # items are for the combined price
     group_basket.sort {|a,b,c| b.price <=> a.price }
@@ -259,6 +260,23 @@ class Checkout
     # Remove group.qty, make new group item and add anything else
     while eligable_qty > 0
       # I want to add as many as possible
+      group_basket.each do |item|
+        if item.qty <= eligable_qty
+          eligable_qty -= item.qty
+          item.update_quantity(0)
+        else
+          item.update_quantity(item.qty-eligable_qty)
+          eligable_qty = 0
+        end
+      end
+
+
+
+
+
+
+
+
       eligable_qty -= group_basket[count].qty - group.qty
       if eligable_qty <= group.qty
         group_basket[count].update_quantity(group_basket[count].qty - 1)
@@ -334,6 +352,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
