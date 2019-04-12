@@ -223,7 +223,7 @@ class Checkout
     p @sorted_basket
     group_basket = []
     @groups.each do |group|
-      check_group(group)
+      collect_group_items(group)
       if group_valid?(group_basket,group.qty)
         calc_group_discount(group_basket,group)
       else
@@ -234,25 +234,19 @@ class Checkout
     p @sorted_basket
   end
 
-  def check_group(group)
-      false
-    #   p group
-    #   p @sorted_basket
-    #   while x < @sorted_basket.length
-    #     if group.item_list.include?(item.name)
-    #       p ' Might Have group!'
-    #       group_basket << item
-    #       @sorted_basket.delete_at(x)
-    #       # x += 1
-    #       p group_basket
-    #       p @sorted_basket
-    #     else
-    #       x += 1
-    #     end
-    #
-    #   end
-    #
-    # end
+  def collect_group_items(group)
+    x = 0
+    group_basket[]
+    while x < @sorted_basket.length
+      if group.item_list.include?(item.name)
+        p ' Might Have group!'
+        group_basket << item
+        @sorted_basket.delete_at(x)
+        p group_basket
+        p @sorted_basket
+      else
+          x += 1
+      end
   end
 
   def group_valid?(group_basket,group_qty)
@@ -339,5 +333,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
