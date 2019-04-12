@@ -253,10 +253,13 @@ class Checkout
     # items are for the combined price
     group_basket.sort {|a,b,c| b.price <=> a.price }
     items_in_group_basket = calc_items_in_group_basket(group_basket)
+    eligable_qty = (items_in_group_basket / group.qty)*group.qty
+    p '---------------'
+    p eligable_qty
     # Remove group.qty, make new group item and add anything else
-    while count < group.qty
+    while eligable_qty < items_in_group_basket
       # I want to add as many as possible
-      eligable_qty = group_basket[count].qty - group.qty
+      eligable_qty -= group_basket[count].qty - group.qty
       if eligable_qty <= group.qty
         group_basket[count].update_quantity(group_basket[count].qty - 1)
         count += 1
@@ -331,5 +334,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
