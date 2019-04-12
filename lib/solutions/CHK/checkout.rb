@@ -230,14 +230,15 @@ class Checkout
     # If the basket doesn't qualify then its all put back and the next group checked
     @groups.each do |group|
       p group
-      while x < sorted_basket.length
-        if group.item_list.include?(sorted_basket[x].name)
-          p 'Have group!'
-          group_basket << sorted_basket[x]
-          sorted_basket.delete_at(x)
+      p @sorted_basket
+      while x < @sorted_basket.length
+        if group.item_list.include?(@sorted_basket[x].name)
+          p ' Might Have group!'
+          group_basket << @sorted_basket[x]
+          @sorted_basket.delete_at(x)
           # x += 1
           p group_basket
-          p sorted_basket
+          p @sorted_basket
         else
           x += 1
         end
@@ -301,16 +302,15 @@ class Checkout
     @sorted_basket.each do |basket_item|
       @freebies.each do |freebie|
         if basket_item.name == freebie.name &&
-          eligable(basket_item.qty,freebie.qty,freebie.min_qty)
+          eligable_for_freebie(basket_item.qty,freebie.qty,freebie.min_qty)
           no_freebies = basket_item.qty / freebie.qty
-          # Need to find the freebie
           make_freebie_free(freebie.free_item,no_freebies)
         end
       end
     end
   end
 
-  def eligable(basket_qty,offer_qty,min_qty)
+  def eligable_for_freebie(basket_qty,offer_qty,min_qty)
       basket_qty >= offer_qty &&
       basket_qty >= min_qty
   end
@@ -337,7 +337,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
