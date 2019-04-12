@@ -132,7 +132,6 @@ class Checkout
     @shop_items << i
     i = Item.new('Z',21)
     @shop_items << i
-
   end
 
   def set_up_discounts
@@ -200,7 +199,6 @@ class Checkout
     found
   end
 
-  # KM Not happy about this looping unnecessarily - revisit
   def sort_basket(basket)
     @sorted_basket = []
     @shop_items.each do |shop_item|
@@ -270,22 +268,8 @@ class Checkout
    end
 
   def add_group_to_basket(no_eligable_groups,group)
-  end
-
-
-
-
-
-
-      eligable_qty -= group_basket[count].qty - group.qty
-      if eligable_qty <= group.qty
-        group_basket[count].update_quantity(group_basket[count].qty - 1)
-        count += 1
-      end
-    end
-    basket_item = BasketItem.new('GROUP',group.price,1)
-    @sorted_basket << basket_item
-    @sorted_basket += group_basket
+    special_offer_item = BasketItem.new('GROUP',group.price,no_eligable_groups)
+    @sorted_basket << special_offer_item
   end
 
   def calc_items_in_group_basket(basket)
@@ -352,6 +336,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
