@@ -247,9 +247,15 @@ class Checkout
         qualifying_counter -= 1
       end
     end
-    if qualifying_counter <= 0
+    if qualifying_counter > 0
+      p 'We dont have a group'
+      @sorted_basket << group_items
+    else
       p 'We have a group'
       p  group.price
+      group_qty = 1 # KM
+      special_offer_item = BasketItem.new('GROUP',group.price,group_qty)
+      @sorted_basket << special_offer_item
     end
   end
 
@@ -310,4 +316,5 @@ class Checkout
     @total_price
   end
 end
+
 
