@@ -100,7 +100,7 @@ class Checkout
     @shop_items << i
     i = Item.new('J',60)
     @shop_items << i
-    i = Item.new('K',80)
+    i = Item.new('K',70)
     @shop_items << i
     i = Item.new('L',90)
     @shop_items << i
@@ -116,7 +116,7 @@ class Checkout
     @shop_items << i
     i = Item.new('R',50)
     @shop_items << i
-    i = Item.new('S',30)
+    i = Item.new('S',20)
     @shop_items << i
     i = Item.new('T',20)
     @shop_items << i
@@ -126,9 +126,9 @@ class Checkout
     @shop_items << i
     i = Item.new('W',20)
     @shop_items << i
-    i = Item.new('X',90)
+    i = Item.new('X',17)
     @shop_items << i
-    i = Item.new('Y',10)
+    i = Item.new('Y',20)
     @shop_items << i
     i = Item.new('Z',21)
     @shop_items << i
@@ -327,3 +327,4 @@ class Checkout
     @total_price
   end
 end
+
