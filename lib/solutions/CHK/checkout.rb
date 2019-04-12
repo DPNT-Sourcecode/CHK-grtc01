@@ -224,7 +224,8 @@ class Checkout
       p group.item_list
       qualifying_counter = 0
       @sorted_basket.each do |basket_item|
-        if group.item_list.include?(basket_item.name)
+        if group.item_list.include?(basket_item.name) &&
+          basket_item.qty > 0
           p 'In group'
           qualifying_counter += 1
         end
@@ -316,5 +317,6 @@ class Checkout
     @total_price
   end
 end
+
 
 
