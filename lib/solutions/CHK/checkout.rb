@@ -245,7 +245,7 @@ class Checkout
       end
       if !check_if_group_valid(group_basket,group.qty)
         p 'Adding items back'
-        @sorted_basket << group_basket
+        @sorted_basket += group_basket
       else
         calc_group_discount(group_basket,group)
       end
@@ -337,6 +337,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
