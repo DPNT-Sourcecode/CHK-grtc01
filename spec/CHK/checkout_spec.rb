@@ -210,15 +210,19 @@ describe Checkout do
 #   it 'App should return 190 if KKK are in the basket' do
 #     expect(subject.checkout('KKK')).to eq(190)
 #   end
-#   it 'App should return 190 if KKK are in the basket' do
+#   it 'App should return 240 if KKK are in the basket' do
 #     expect(subject.checkout('KKKK')).to eq(240)
 #   end
-  it 'App should return 190 if KKK are in the basket' do
-    expect(subject.checkout('KKKK')).to eq(240)
+  it 'App should return 90 if STXSTX are in the basket' do
+    expect(subject.checkout('STXSTX')).to eq(90)
   end
-- {"method":"checkout","params":["STXSTX"],"id":"CHK_R5_140"}, expected: 90, got: 102
-- {"method":"checkout","params":["SSS"],"id":"CHK_R5_141"}, expected: 45, got: null
-- {"method":"checkout","params":["SSSZ"],"id":"CHK_R5_142"}, expected: 65, got: null
+  it 'App should return 45 if SSS are in the basket' do
+    expect(subject.checkout('SSS')).to eq(45)
+  end
+  it 'App should return 65 if STXSTX are in the basket' do
+    expect(subject.checkout('STXSTX')).to eq(65)
+  end
 end
+
 
 
