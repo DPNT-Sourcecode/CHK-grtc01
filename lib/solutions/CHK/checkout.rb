@@ -263,8 +263,9 @@ class Checkout
 
   def calc_group_discount(group_basket,group_qty)
     p 'In calc_group_discount'
+    p group_basket
   end
-   
+
   def check_discounts
     specials = []
     @sorted_basket.each do |basket_item|
@@ -322,6 +323,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
