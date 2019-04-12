@@ -267,7 +267,7 @@ class Checkout
     no_groups = 0
     # KM unclear user requirement - presumably the 3 most expensive
     # items are for the combined price
-    group_basket.each do |
+    p  group_basket.sort {|a,b,c| b[2] <=> a[2]}
   end
 
   def check_discounts
@@ -327,4 +327,5 @@ class Checkout
     @total_price
   end
 end
+
 
