@@ -259,27 +259,21 @@ class Checkout
 
   def update_group_basket(eligable_qty,group_basket)
     p 'in update_group_basket'
-    while eligable_qty > 0
-      p group_basket
-      group_basket.each do |item|
-        p item
-        if item.qty <= eligable_qty
-          p 'Take some away'
-          p item.qty
-          eligable_qty -= item.qty
-          item.update_quantity(0)
-        else
-          p 'Finished'
-          p item.qty
-          p eligable_qty
-          item.update_quantity(item.qty-eligable_qty)
-          eligable_qty = 0
-          p item.qty
-          p @sorted_basket
-        end
+    count = 0
+    while eligable_qty > 0 && count < group_basket.length
+      if group_basket[count].qty > eligable_qty
+        p 'Only some in the offer'
+        group_basket[count].update_quantity(item.qty-eligable_qty)
+        eligable_qty = 0
+        count += 1
+      else
+        p 'all of these in the offer'
+        p group_basket[count].qty
+        eligable_qty -= group_basket[count].qty
+        group_basket.delete_at(x)
       end
-
     end
+    @sorted_basket += group_basket
   end
 
   def add_group_to_basket(no_eligable_groups,group)
@@ -351,3 +345,4 @@ class Checkout
     @total_price
   end
 end
+
