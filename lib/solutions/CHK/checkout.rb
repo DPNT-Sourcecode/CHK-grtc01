@@ -232,6 +232,7 @@ class Checkout
       end
     end
     p @sorted_basket
+    p group_basket
   end
 
   def collect_group_items(group,group_basket)
@@ -252,9 +253,11 @@ class Checkout
 
   def group_valid?(group_basket,group_qty)
     p 'in if_group_valid '
+    p group_basket
+    p group_qty
     no_items = 0
     group_basket.each do |item|
-      no_items += group_qty
+      no_items += group_basket.qty
     end
     no_items >= group_qty
   end
@@ -334,6 +337,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
