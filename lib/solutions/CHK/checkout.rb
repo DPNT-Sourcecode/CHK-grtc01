@@ -261,17 +261,24 @@ class Checkout
     p 'in update_group_basket'
     while eligable_qty > 0
       p group_basket
-      p @sorted_basket
       group_basket.each do |item|
         p item.name
         if item.qty <= eligable_qty
+          p 'Take some away'
+          p item.qty
           eligable_qty -= item.qty
           item.update_quantity(0)
         else
+          p 'Finished'
+          p item.qty
+          p eligable_qty
           item.update_quantity(item.qty-eligable_qty)
           eligable_qty = 0
+          p item.qty
+          p @sorted_basket
         end
       end
+
     end
   end
 
@@ -345,6 +352,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
