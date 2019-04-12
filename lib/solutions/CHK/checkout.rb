@@ -244,11 +244,7 @@ class Checkout
   end
 
   def group_valid?(group_basket,group_qty)
-    no_items = 0
-    group_basket.each do |item|
-      no_items += item.qty
-    end
-    no_items >= group_qty
+    calc_items_in_group_basket(group_basket) >= group_qty
   end
 
   def calc_group_discount(group_basket,group)
@@ -262,8 +258,9 @@ class Checkout
       # I want to add as many as possible
       eligable_qty = group_basket[count].qty - group.qty
       if eligable_qty <= group.qty
-      group_basket[count].update_quantity(group_basket[count].qty - 1)
-      count += 1
+        group_basket[count].update_quantity(group_basket[count].qty - 1)
+        count += 1
+      end
     end
     basket_item = BasketItem.new('GROUP',group.price,1)
     @sorted_basket << basket_item
@@ -275,7 +272,7 @@ class Checkout
     basket.each do |item|
       total_items += item.qty
     end
-    total_items
+    p total_items
   end
 
   def check_discounts
@@ -334,4 +331,5 @@ class Checkout
     @total_price
   end
 end
+
 
