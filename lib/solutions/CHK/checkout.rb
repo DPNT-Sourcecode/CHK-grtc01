@@ -246,6 +246,7 @@ class Checkout
   end
 
   def calc_group_discount(group_basket,group)
+    p group_basket
     group_basket.sort {|a,b,c| b.price <=> a.price }
     items_in_group_basket = calc_items_in_group_basket(group_basket)
     no_eligable_groups = items_in_group_basket / group.qty
@@ -265,7 +266,8 @@ class Checkout
           eligable_qty = 0
         end
       end
-   end
+    end
+  end
 
   def add_group_to_basket(no_eligable_groups,group)
     special_offer_item = BasketItem.new('GROUP',group.price,no_eligable_groups)
@@ -336,6 +338,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
