@@ -220,41 +220,30 @@ class Checkout
   end
 
   def check_groups
-    p @sorted_basket
     group_basket = []
     @groups.each do |group|
       collect_group_items(group,group_basket)
       if group_valid?(group_basket,group.qty)
         calc_group_discount(group_basket,group)
       else
-        p 'Adding items back'
         @sorted_basket += group_basket
       end
     end
-    p @sorted_basket
-    p group_basket
   end
 
   def collect_group_items(group,group_basket)
     x = 0
     while x < @sorted_basket.length
       if group.item_list.include?(@sorted_basket[x].name)
-        p ' Might Have group!'
         group_basket << @sorted_basket[x]
         @sorted_basket.delete_at(x)
-        p group_basket
-        p @sorted_basket
       else
           x += 1
       end
     end
-    p @sorted_basket
   end
 
   def group_valid?(group_basket,group_qty)
-    p 'in if_group_valid '
-    p group_basket
-    p group_qty
     no_items = 0
     group_basket.each do |item|
       no_items += item.qty
@@ -263,12 +252,10 @@ class Checkout
   end
 
   def calc_group_discount(group_basket,group)
-    p 'In calc_group_discount'
-    p group_basket
     count = 0
     # KM unclear user requirement - presumably the 3 most expensive
     # items are for the combined price
-    p  group_basket.sort {|a,b,c| b.price <=> a.price }
+    group_basket.sort {|a,b,c| b.price <=> a.price }
     # Remove group.qty, make new group item and add anything else
     while count < group.qty
       group_basket[count].update_quantity(group_basket[count].qty - 1)
@@ -277,8 +264,6 @@ class Checkout
     basket_item = BasketItem.new('GROUP',group.price,1)
     @sorted_basket << basket_item
     @sorted_basket += group_basket
-    p sorted_basket
-
   end
 
   def check_discounts
@@ -337,6 +322,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
