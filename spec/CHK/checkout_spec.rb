@@ -1,18 +1,18 @@
 require './lib/solutions/CHK/checkout.rb'
 
 describe Checkout do
-  # Edge Case
-  it 'App should return -1 if & is in the basket' do
-    expect(subject.checkout('&')).to eq(-1)
-  end
-  it 'App should return -1 if ABCD& are in the basket' do
-    expect(subject.checkout('ABCD&')).to eq(-1)
-  end
-
-  # # Single Items
-  it 'App should return 50 if A is in the basket' do
-    expect(subject.checkout('A')).to eq(50)
-  end
+  # # Edge Case
+  # it 'App should return -1 if & is in the basket' do
+  #   expect(subject.checkout('&')).to eq(-1)
+  # end
+  # it 'App should return -1 if ABCD& are in the basket' do
+  #   expect(subject.checkout('ABCD&')).to eq(-1)
+  # end
+  #
+  # # # Single Items
+  # it 'App should return 50 if A is in the basket' do
+  #   expect(subject.checkout('A')).to eq(50)
+  # end
 #   it 'App should return 30 if B is in the basket' do
 #     expect(subject.checkout('B')).to eq(30)
 #   end
@@ -207,3 +207,4 @@ describe Checkout do
 #     expect(subject.checkout('XYZ')).to eq(45)
 #   end
 end
+
