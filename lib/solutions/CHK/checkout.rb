@@ -257,7 +257,7 @@ class Checkout
     p '---------------'
     p eligable_qty
     # Remove group.qty, make new group item and add anything else
-    while eligable_qty < items_in_group_basket
+    while eligable_qty > 0
       # I want to add as many as possible
       eligable_qty -= group_basket[count].qty - group.qty
       if eligable_qty <= group.qty
@@ -334,6 +334,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
