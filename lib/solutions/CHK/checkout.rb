@@ -256,8 +256,11 @@ class Checkout
   end
 
   def update_group_basket(eligable_qty,group_basket)
+    p 'in update_group_basket'
+    p group_basket
     while eligable_qty > 0
       group_basket.each do |item|
+        p item.name
         if item.qty <= eligable_qty
           eligable_qty -= item.qty
           item.update_quantity(0)
@@ -271,6 +274,7 @@ class Checkout
 
   def add_group_to_basket(no_eligable_groups,group)
     special_offer_item = BasketItem.new('GROUP',group.price,no_eligable_groups)
+    p special_offer_item
     @sorted_basket << special_offer_item
   end
 
@@ -338,11 +342,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
-
-
-
-
