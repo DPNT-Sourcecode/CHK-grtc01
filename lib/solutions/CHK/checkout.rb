@@ -262,14 +262,17 @@ class Checkout
   end
 
   def calc_group_discount(group_basket,group)
-    p 'In calc_group_discount'
-    p group_basket
-    count = 0
-    # KM unclear user requirement - presumably the 3 most expensive
-    # items are for the combined price
-    p  group_basket.sort {|a,b,c| b.price <=> a.price }
-    # Remove group.qty, make new group item and add anything else
-    group_basket.each do |item|
+    # p 'In calc_group_discount'
+    # p group_basket
+    # count = 0
+    # # KM unclear user requirement - presumably the 3 most expensive
+    # # items are for the combined price
+    # p  group_basket.sort {|a,b,c| b.price <=> a.price }
+    # # Remove group.qty, make new group item and add anything else
+    # group_basket.each do |item|
+    #   item.update_quantity(item.qty -= 1)
+    #   count =+ 1
+    # end
   end
 
   def check_discounts
@@ -329,6 +332,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
