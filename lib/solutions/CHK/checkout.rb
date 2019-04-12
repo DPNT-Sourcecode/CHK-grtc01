@@ -249,14 +249,10 @@ class Checkout
   end
 
   def calc_group_discount(group_basket,group)
-        p @sorted_basket
     sorted_group_basket = group_basket.sort! { |a, b|  b.price <=> a.price }
     items_in_group_basket = calc_items_in_group_basket(sorted_group_basket)
     no_eligable_groups = items_in_group_basket / group.qty
     eligable_qty = no_eligable_groups * group.qty
-    p 'What is going on? '
-    p sorted_basket
-    p @sorted_basket
     update_group_basket(eligable_qty,sorted_group_basket)
     add_group_to_basket(no_eligable_groups,group)
   end
@@ -266,7 +262,7 @@ class Checkout
     while eligable_qty > 0
       p group_basket
       group_basket.each do |item|
-        p item.name
+        p item
         if item.qty <= eligable_qty
           p 'Take some away'
           p item.qty
@@ -355,6 +351,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
