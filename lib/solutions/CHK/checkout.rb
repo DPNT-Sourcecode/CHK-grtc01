@@ -257,7 +257,7 @@ class Checkout
     p group_qty
     no_items = 0
     group_basket.each do |item|
-      no_items += group_basket.qty
+      no_items += item.qty
     end
     no_items >= group_qty
   end
@@ -337,6 +337,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
