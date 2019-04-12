@@ -229,7 +229,8 @@ class Checkout
     # If the basket doesn't qualify then its all put back and the next group checked
     @groups.each do |group|
       @sorted_basket.each do |basket_item|
-        if group.item_list.include?(basket_item.name)
+        if group.item_list.include?(basket_item.name) &&
+          basket_item.qty > 0
           group_basket << basket_item
           basket_item.update_quantity(0)
         end
@@ -306,3 +307,4 @@ class Checkout
     @total_price
   end
 end
+
