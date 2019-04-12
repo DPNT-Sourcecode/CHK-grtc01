@@ -223,6 +223,3 @@ describe Checkout do
     expect(subject.checkout('STXSTX')).to eq(65)
   end
 end
-
-
-
