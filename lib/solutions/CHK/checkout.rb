@@ -130,7 +130,7 @@ class Checkout
     @shop_items << i
     i = Item.new('Y',10)
     @shop_items << i
-    i = Item.new('Z',50)
+    i = Item.new('Z',21)
     @shop_items << i
 
   end
@@ -261,9 +261,13 @@ class Checkout
     no_items >= group_qty
   end
 
-  def calc_group_discount(group_basket,group_qty)
+  def calc_group_discount(group_basket,group)
     p 'In calc_group_discount'
     p group_basket
+    no_groups = 0
+    # KM unclear user requirement - presumably the 3 most expensive
+    # items are for the combined price
+    group_basket.each do |
   end
 
   def check_discounts
@@ -323,9 +327,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
-
-
