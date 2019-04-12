@@ -246,8 +246,12 @@ class Checkout
   end
 
   def calc_group_discount(group_basket,group)
+    p 'in calc_group_discount'
+    print 'Before... '
     p group_basket
-    group_basket.sort {|a,b,c| b.price <=> a.price }
+    group_basket.sort {|a,b| a.price <=> b.price }
+    print 'After... '
+    p group_basket
     items_in_group_basket = calc_items_in_group_basket(group_basket)
     no_eligable_groups = items_in_group_basket / group.qty
     eligable_qty = no_eligable_groups * group.qty
@@ -342,3 +346,4 @@ class Checkout
     @total_price
   end
 end
+
