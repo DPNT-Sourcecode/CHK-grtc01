@@ -147,7 +147,7 @@ class Checkout
     @discounts << d
     d = Discount.new('H',5,45)
     @discounts << d
-    d = Discount.new('K',2,150)
+    d = Discount.new('K',2,120)
     @discounts << d
     d = Discount.new('P',5,200)
     @discounts << d
@@ -322,10 +322,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
-
-
-
