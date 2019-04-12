@@ -252,8 +252,7 @@ class Checkout
     p 'in calc_group_discount'
     print 'Before... '
     p group_basket
-    # group_basket.sort_by{ |item| item.price }.reverse
-    group_basket.sort!
+    sorted_basket = sort_on_price(group_basket)
     print 'After... '
     p group_basket
     items_in_group_basket = calc_items_in_group_basket(group_basket)
@@ -350,6 +349,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
