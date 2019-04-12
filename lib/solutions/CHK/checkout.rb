@@ -233,13 +233,20 @@ class Checkout
           group_basket << basket_item
           basket_item.update_quantity(0)
         end
-        check_if_group_valid(group_basket,group)
+        if !check_if_group_valid(group_basket,group.qty)
+          sorted_basket << group_basket
+        end
       end
     end
   end
 
-  def check_if_group_valid(group_basket,group)
+  def check_if_group_valid(group_basket,group_qty)
     p 'in check_if_group_valid '
+    no_items = 0
+    group_basket.each do |item|
+      no_items += group_qty
+    end
+    no_items >= group_qty
   end
 
   def check_discounts
@@ -299,7 +306,3 @@ class Checkout
     @total_price
   end
 end
-
-
-
-
