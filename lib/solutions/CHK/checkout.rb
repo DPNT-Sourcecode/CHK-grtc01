@@ -220,44 +220,26 @@ class Checkout
   end
 
   def check_groups
+    group_basket = []
+    # loop through the groups...
+    # loop through the basket
+    # if the item is in the group
+    # Move it out of the basket and put it in a group basket
+    # When the group/basket check is finished, assess the group_basket
+    # If the basket doesn't qualify then its all put back and the next group checked
     @groups.each do |group|
-      p group.item_list
-      qualifying_counter = 0
       @sorted_basket.each do |basket_item|
-        if group.item_list.include?(basket_item.name) &&
-          basket_item.qty > 0
-          p 'In group'
-          qualifying_counter += 1
+        if group.item_list.include?(basket_item.name)
+          group_basket << basket_item
+          basket_item.update_quantity(0)
         end
-        if qualifying_counter == group.qty
-          p 'RESULT!'
-          update_basket_with_group_discount(group)
-        end
+        check_if_group_valid(group_basket,group)
       end
     end
   end
 
-  def update_basket_with_group_discount(group)
-    group_items = []
-    qualifying_counter = group.qty
-    p 'Update Basket'
-    @sorted_basket.each do |basket_item|
-      if group.item_list.include?(basket_item.name)
-        group_items << basket_item
-        basket_item.update_quantity(basket_item.qty - 1)
-        qualifying_counter -= 1
-      end
-    end
-    if qualifying_counter > 0
-      p 'We dont have a group'
-      @sorted_basket << group_items
-    else
-      p 'We have a group'
-      p  group.price
-      group_qty = 1 # KM
-      special_offer_item = BasketItem.new('GROUP',group.price,group_qty)
-      @sorted_basket << special_offer_item
-    end
+  def check_if_group_valid(group_basket,group)
+    p 'in check_if_group_valid '
   end
 
   def check_discounts
@@ -317,6 +299,7 @@ class Checkout
     @total_price
   end
 end
+
 
 
 
